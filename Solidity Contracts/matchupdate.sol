@@ -14,6 +14,8 @@ contract MatchUpdate is MatchOrder{
         if (homeGoals<awayGoals) {games[_gameID].result=2;}
         
     }
+
+    
     
     function getLength(uint _gameID) view internal returns(uint8){
         return uint8(games[_gameID].betIDs.length);

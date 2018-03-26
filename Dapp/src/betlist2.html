@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bet</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+
+</head>
+    <body>
+
+            
+            
+
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-push-2">
+                    <h1 class="text-center">Pariez sur la ligue des champions avec Axiochain</h1>
+                    <hr/>
+                    <br/>
+                </div>
+            </div>
+
+
+
+            <div id="gameRow" class="row">
+                <!-- PETS LOAD HERE -->
+            </div>
+
+        </div>
+        <div id="gametemplate">
+            <div class="col-lg-2 control-label">
+            <h2 class="titre">Bet on the Match: Barcelona-Roma</h2>
+                    
+            <label class="titredate">Date</label>
+            <label class="date">le 4 avril à 20h45</label>
+                    
+            <button class='buttonlink' onclick="window.location.href='./4.html'">Bet!</button>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   
+        <script>
+        $(function() {
+            $(window).load(function() {
+    
+  
+        $.getJSON('../games.json', function(data) {
+            var gameRow = $('#gameRow');
+            var gameTemplate = $('#petTemplate');
+
+            for (i = 0; i < data.length; i ++) {
+                console.log("bbbb");
+                gameTemplate.find('.titre').text('Bet on the Match:'+data[i].name);
+                console.log(data[i].Date);
+                gameTemplate.find('.titredate').text(data[i].Date);
+                
+                console.log("aaaa");
+                gameRow.append(gameTemplate.html());
+                }
+                console.log("ok");
+            });
+        });
+});
+        
+        </script>
+    
+
+    </body>
+</html>
