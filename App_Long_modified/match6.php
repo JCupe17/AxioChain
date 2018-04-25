@@ -109,7 +109,7 @@
 
                     <div class="group action">
                         <label class="label hidden-phone">&nbsp;</label>
-                        <a id ="button" type="submit" class="btn primary full">BET !</a>
+                        <button id ="buttonBet" type="button" class="btn primary full" onclick="bet()">BET !</button>
                     </div>
                 </div>
 
@@ -117,6 +117,7 @@
         </div>
     </div>
 
+    <div id="txStatus">NOTE: Remember, only one bet per match and per pseudo is allowed!!!</div>
 
     <div class="container">
         <h2 class="block-title">
@@ -206,74 +207,74 @@
 
             </div>
         </div>
-    
+
     </div>
 
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="axiochain.js"></script>
 <script>
 
-if (typeof web3 !== 'undefined') {
-    web3 = new Web3(web3.currentProvider);
-} else {
-    // set the provider you want from Web3.providers
-    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:3000"));
-}
+    var axioChain;
+    var userAccount;
 
-web3.eth.defaultAccount = web3.eth.accounts[0];
+    // Checking if Web3 has been injected by the browser (Mist/Metamask)
+    if (typeof web3 !== 'undefined') {
+        // Use Mist/Metamask's provider
+        web3 = new Web3(web3.currentProvider);
+    } else {
+        // Handle the case where the user doesn't have Metamask installed
+        // Probably show them a message prompting them to install Metamask
+        // set the provider you want from Web3.providers
+        web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:3000"));
+    }
 
-var axiochainContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"pseudos","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"games","outputs":[{"name":"gameID","type":"uint8"},{"name":"homeTeamGoals","type":"uint8"},{"name":"awayTeamGoals","type":"uint8"},{"name":"result","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_gameID","type":"uint8"}],"name":"updateCote","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"gameIDs","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"bets","outputs":[{"name":"betID","type":"uint32"},{"name":"stake","type":"uint32"},{"name":"win","type":"uint8"},{"name":"sender","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"result","type":"uint8"},{"name":"_betIds","type":"uint32[]"}],"name":"getSum","outputs":[{"name":"sum","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_gameID","type":"uint256"},{"name":"win","type":"uint8"},{"name":"_value","type":"uint32"}],"name":"placeOrder","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"},{"name":"_extraData","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_gameID","type":"uint8"}],"name":"createMatch","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_gameID","type":"uint256"},{"name":"homeGoals","type":"uint8"},{"name":"awayGoals","type":"uint8"}],"name":"updateStatus","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_gameID","type":"uint256"}],"name":"retribute","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_gameID","type":"uint8"}],"name":"getCote","outputs":[{"name":"","type":"uint16[3]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"pseudo","type":"string"}],"name":"register","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"coted","type":"uint16"},{"indexed":false,"name":"coteh","type":"uint16"},{"indexed":false,"name":"cotea","type":"uint16"}],"name":"Cote","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"a","type":"uint32"},{"indexed":false,"name":"_reward","type":"uint32"},{"indexed":false,"name":"cote","type":"uint16"}],"name":"DebugEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"pseudo","type":"string"},{"indexed":false,"name":"tipe","type":"uint256"},{"indexed":false,"name":"value","type":"uint256"},{"indexed":false,"name":"win","type":"uint8"},{"indexed":false,"name":"gameID","type":"uint256"},{"indexed":false,"name":"blocknumber","type":"uint256"}],"name":"NewBlokkEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]);
-var Match = axiochainContract.at('0xecf2cfa7166e229d03ea2bd54558455a7696a5f1');
-console.log(Match);
-
-var blokkEvent = Match.NewBlokkEvent({},'latest');
-
-blokkEvent.watch(function(error, result){
-    if (!error && result.args.tipe==0 && result.args.gameID==6)
-        {
-            vh="the victory of Bayern";
-            va="the victory of Dortmund";
-            vd="a draw";
-            l="";
-            if(result.args.win==0){l=vd;}
-            else{ if(result.args.win==1){l=vh;}
-                else{l=va;}
-                }
-            var d = new Date();
-            $("#time2").html(d.getHours()+'h'+d.getMinutes());
-            $("#blocknumber").html('Block N°'+result.args.blocknumber);
-            $("#part1").html(result.args.pseudo +' bet '+result.args.value+' Axiocoin on ' +l);
-        } else {
-            console.log(error);
+    // Update the default User-account
+    var accountInterval = setInterval(function () {
+        // Check if account has changed
+        if (web3.eth.accounts[0] !== userAccount) {
+            userAccount = web3.eth.accounts[0];
         }
-});
+    }, 1000);
 
-$("#button").click(function() {
-    
+    function bet(){
+        // Interact with AxioChain Smart Contract
+        var axiochainContract = web3.eth.contract(axiochainABI);
+        var gameID = 6;
+        axioChain = axiochainContract.at(axiochainAddress);
+        $("#txStatus").text("Processing bet!!!" + ($("#pseudo").val()) + " to the blockchain. This may take a while...");
 
+        axioChain.placeOrder(gameID,$("#winner").val(), $("#value").val(), function(error, result){
+            if(!error)
+                console.log(result);
+            else
+                console.error(error);
+        });
 
-
-
-
-
-    l=$("#winner").val();
-    console.log($("#value").val());
-    console.log(l);
-    Match.placeOrder(6,l, $("#value").val(), function(error, result){
-        if(!error){
-            console.log(result);}
-        else{
-            console.error(error);}
-    });
-});
-
+        var blokkEvent = axioChain.NewBlokkEvent({},'latest');
+        blokkEvent.watch(function(error, result){
+            if (!error && result.args.tipe==0 && result.args.gameID==gameID)
+            {
+                vh="the victory of Bayern";
+                va="the victory of Dortmund";
+                vd="a draw";
+                l="";
+                if(result.args.win==0){l=vd;}
+                else{
+                    if(result.args.win==1){l=vh;}
+                    else{l=va;}
+                }
+                $("#blocknumber").html('Block N°'+result.args.blocknumber);
+                $("#part1").html(result.args.pseudo +' bet '+result.args.value+' Axiocoin on ' +l);
+                var d= new Date();
+                $("#time2").html(d.getHours()+'h'+d.getMinutes());
+            } else {
+                console.log(error);
+            }
+        });
+    }
 
 </script>
 
-
-
-
-
-
 <?php include '_foot.php'; ?>
-
