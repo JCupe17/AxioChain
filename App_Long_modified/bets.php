@@ -2,47 +2,47 @@
 
 <div class="whole-area bg wrapper">
 
-	<div class="search-area">
-		<div class="container">
-			<div class="date">Thursday March, 29th</div>
+    <div class="search-area">
+        <div class="container">
+            <div class="date">Thursday March, 29th</div>
 
-			<div id="time" class="time"></div>
+            <div id="time" class="time"></div>
 
-			<form class="form search">
-				<input type="search" name="s" class="control" placeholder="Search a team or a day"/>
-				<button type="submit"><img src="img/glass.png" alt=""/></button>
-			</form>
-		</div>
-	</div>
+            <form class="form search">
+                <input type="search" name="s" class="control" placeholder="Search a team or a day"/>
+                <button type="submit"><img src="img/glass.png" alt=""/></button>
+            </form>
+        </div>
+    </div>
 
-	<div class="heading-area">
-		<div class="container">
-			<div class="content">
-				<h1 class="main-title">
-					Whole Blockchain<br>
+    <div class="heading-area">
+        <div class="container">
+            <div class="content">
+                <h1 class="main-title">
+                    Whole Blockchain<br>
                     <img src="img/link2.png" alt=""/>
                     <img src="img/link2.png" alt=""/>
                     <img src="img/logo-coin.png" alt=""/>
                     <img src="img/link2.png" alt=""/>
                     <img src="img/link2.png" alt=""/>
-				</h1>
-			</div>
+                </h1>
+            </div>
 
-			<div class="action">
-				<a href="#" class="btn secondary full disabled">
-					<img src="img/link.png" alt=""/>
-					Whole blockchain
-				</a>
-			</div>
+            <div class="action">
+                <a href="#" class="btn secondary full disabled">
+                    <img src="img/link.png" alt=""/>
+                    Whole blockchain
+                </a>
+            </div>
 
-			<div class="action">
-				<a href="#" class="btn secondary full">
-					<img src="img/refresh.png" alt=""/>
-					Update
-				</a>
-			</div>
-		</div>
-	</div>
+            <div class="action">
+                <a href="#" class="btn secondary full">
+                    <img src="img/refresh.png" alt=""/>
+                    Update
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <a href="./list.php" class="back">

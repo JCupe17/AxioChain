@@ -27,7 +27,7 @@
                 <a href="./list.php">Bet List</a>
             </li>
             <li>
-                <a href="./whole2.php">My Bets</a>
+                <a href="./bets.php">My Bets</a>
             </li>
             <li>
                 <a href="./whole.php">Ledger</a>
