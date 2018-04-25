@@ -4,6 +4,8 @@ import "./safemath.sol";
 
 contract MatchFactory is Ownable {
     
+    using SafeMath for uint32;
+
     struct Match{
         uint8 gameID;
         uint8 homeTeamGoals;
@@ -12,20 +14,13 @@ contract MatchFactory is Ownable {
         uint16[3] cote;
         uint32[] betIDs;
     }
-    using SafeMath for uint32;
     
     function() public payable{}
 
     uint8[] public gameIDs; 
-    mapping(address=>string) public pseudos;
 
     mapping(uint=>Match) public games;
     event NewBlokkEvent(string pseudo,uint tipe,uint256 value,uint8 win,uint gameID,uint blocknumber);
-    
-    function register(string pseudo) external{
-        pseudos[msg.sender]=pseudo;
-    }
-    
     
     function createMatch(uint8 _gameID) public onlyOwner{
         gameIDs.push(_gameID);

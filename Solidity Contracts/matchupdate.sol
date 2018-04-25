@@ -56,7 +56,7 @@ contract MatchUpdate is MatchOrder{
                 uint32 _reward=getReward(games[_gameID].result,bets[_betID].stake,games[_gameID].cote,a);
                 reward(bets[_betID].stake*2,bets[_betID].sender);
                 emit DebugEvent(a,_reward,games[_gameID].cote[games[_gameID].result]);
-                emit NewBlokkEvent(pseudos[msg.sender],1,bets[_betID].stake*2,bets[_betID].win,_gameID,block.number);
+                emit NewBlokkEvent(addressToPseudo[msg.sender],1,bets[_betID].stake*2,bets[_betID].win,_gameID,block.number);
             }
         }
     }
