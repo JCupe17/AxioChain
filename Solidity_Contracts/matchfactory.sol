@@ -11,22 +11,43 @@ contract MatchFactory is Ownable {
         uint8 homeTeamGoals;
         uint8 awayTeamGoals;
         uint8 result;
-        uint16[3] cote;
+        uint16[3] odds;
         uint32[] betIDs;
     }
     
     function() public payable{}
 
-    uint8[] public gameIDs; 
+    mapping(uint => Match)  public games;
+    mapping(uint => uint )  numberBetsPerMatch;
 
-    mapping(uint=>Match) public games;
-    event NewBlokkEvent(string pseudo,uint tipe,uint256 value,uint8 win,uint gameID,uint blocknumber);
+    uint16 numberGames = 0;
+
+    // This event returns an error status:
+    // 0 : Everythin is OK
+    // 1 : The pseudo is already used
+    // 2 : The wallet was already registered with another pseudo
+    // 3 : The bet for this match was already done
+    // 4 : The game has finished
+    // 5 : The wallet address is not registered/allowed to play in the blockchain
+    // 6 : The match was already created
+    event ErrorEvent(address indexed _from, string _pseudo, uint8 _status);
+
+    event NewGameEvent(uint8 gameID, uint blockNumber);
     
     function createMatch(uint8 _gameID) public onlyOwner{
-        gameIDs.push(_gameID);
-       uint32[] memory a;
-        games[_gameID]=Match(_gameID, 0,0,3,[uint16(100),uint16(100),uint16(100)],a);
-        
+        if (numberBetsPerMatch[_gameID] != 0) {
+            emit ErrorEvent(msg.sender, "", uint8(6));
+            return;
+        }        
+        uint32[] memory betIDs;
+        games[_gameID]=Match(_gameID, 0,0,3,[uint16(100),uint16(100),uint16(100)],betIDs);
+        numberGames++;
+
+        emit NewGameEvent(_gameID,block.number);
+    }
+
+    function getNumberGames() external view returns(uint16){
+        return numberGames;
     }
 
 }

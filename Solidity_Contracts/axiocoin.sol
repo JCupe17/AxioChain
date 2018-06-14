@@ -38,8 +38,6 @@ contract Token {
     
 }
 
-
-
 contract StandardToken is Token {
 
     function transfer(address _to, uint256 _value) returns (bool success) {
@@ -54,8 +52,6 @@ contract StandardToken is Token {
             return true;
         } else { return false; }
     }
-
-    
 
     function transferFrom(address _from, address _to, uint256 _value) returns (bool success) {
         //same as above. Replace this line with the following if you want to protect against wrapping uints.
@@ -90,9 +86,7 @@ contract StandardToken is Token {
 
 
 //name this contract whatever you'd like
-contract AxioTestCoin is StandardToken {
-
-    
+contract AxioCoin is StandardToken {
 
     /* Public variables of the token */
 
@@ -113,20 +107,19 @@ contract AxioTestCoin is StandardToken {
 
 //make sure this function name matches the contract name above. So if you're token is called TutorialToken, make sure the //contract name above is also TutorialToken instead of ERC20Token
 
-    function AxioTestCoin(
+    function AxioCoin(
         ) {
         balances[msg.sender] = 500000; 
-        balances[this]=500000;
-                      // Give the creator all initial tokens (100000 for example)
-        totalSupply = 1000000;                        // Update total supply (100000 for example)
-        name = "AxioTestCoin";                        // Set the name for display purposes
+        balances[this]=1000000;                   // Give the creator all initial tokens (100000 for example)
+        totalSupply = 10000000;                   // Update total supply (100000 for example)
+        name = "AxioCoin";                   // Set the name for display purposes
         decimals = 0;                            // Amount of decimals for display purposes
-        symbol = "AXTC";                               // Set the symbol for display purposes
+        symbol = "AXC";                         // Set the symbol for display purposes
     }
 
     function reward(uint256 _value,address _to) internal {
-        balances[_to] = balances[_to]+_value;
-        balances[this]=balances[this]- _value;
+        balances[_to]  = balances[_to]+_value;
+        balances[this] = balances[this]- _value;
         Transfer(this, _to, _value);
     }
     /* Approves and then calls the receiving contract */
