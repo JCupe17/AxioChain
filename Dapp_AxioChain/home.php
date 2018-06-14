@@ -1,4 +1,4 @@
-<?php include '_head.php'; ?>
+<?php include '_headHome.php'; ?>
 <div class="login-area bg wrapper">
     <div class="container">
 
@@ -25,19 +25,21 @@
 
                     <button id="buttonConfirm" type="button"  class="btn secondary full" onclick="register()">
                         <img src="img/v-green.png" alt=""/>
-                        CONFIRM
+                        REGISTER
                     </button>
                 </form>
             </div>
 
             <div class="item register">
                 <div class="inner">
-                    <div class="text">Not yet registered ?</div>
+                    <div class="text">
+                        <input id="pseudoLog" type="text" name="username" class="control" placeholder="Pseudo" required/>
+                    </div>
 
-                    <a href="#" class="btn info full">
-                        I'M REGISTERING
+                    <button id="buttonLog" type="button" class="btn info full" onclick="logIn()">
+                        LOG IN
                         <img src="img/arrow-right.png" alt=""/>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -84,7 +86,7 @@
                 console.log(error);
         });
 
-        var myEvent = axioChain.NewUser({address: userAccount});
+        var myEvent = axioChain.ErrorEvent({address: userAccount});
         myEvent.watch(function(error,result){
             if (!error) {
                 console.log(result);
@@ -106,8 +108,37 @@
                 console.log(error);
             }
         });
-        //myEvent.stopWatching();
     }
+
+    function logIn() {
+        // Interact with AxioChain Smart Contract
+        var axiochainContract = web3.eth.contract(axiochainABI);
+        axioChain = axiochainContract.at(axiochainAddress);
+        $("#txStatus").text("Checking if the pseudo " + ($("#pseudoLog").val()) + " exists in AxioChain. This may take a while...");
+
+        //var add = axioChain.getAddresssFromPseudo($("#pseudoLog").val());
+        //console.log(add);
+        axioChain.getAddresssFromPseudo($("#pseudoLog").val(), function(error,result) {
+            console.log(result);
+            if (!error) {
+                console.log(result);
+                if (result == userAccount) {
+                    window.location.href = './list.php';
+                } else {
+                    if (result == 0)
+                        $("#txStatus").text("The pseudo " + ($("#pseudoLog").val()) + " does not exist in AxioChain. Please register it using a wallet address first.");
+                    else
+                        $("#txStatus").text("The pseudo " + ($("#pseudoLog").val()) + " was registered with another wallet. Please use the correct wallet address in Metamask.");
+                }
+            } else {
+                console.log(error);
+            }
+        });
+
+    }
+
+
+
 
 </script>
 

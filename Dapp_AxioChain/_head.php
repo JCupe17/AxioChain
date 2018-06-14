@@ -17,20 +17,20 @@
 <body>
 
 <div class="header-area">
-    <a href="./list.php" class="logo image-responsive">
+    <a href="./home.php" class="logo image-responsive">
         <img src="img/logo.png" alt=""/>
     </a>
 
     <nav class="menu">
         <ul>
             <li>
+                <a href="./home.php">Home</a>
+            </li>
+            <li>
                 <a href="./list.php">Bet List</a>
             </li>
             <li>
-                <a href="./bets.php">My Bets</a>
-            </li>
-            <li>
-                <a href="./whole.php">Ledger</a>
+                <a href="./whole.php">Ranking</a>
             </li>
             <li>
                 <a href="#">About AxioChain</a>
@@ -38,8 +38,8 @@
         </ul>
     </nav>
 
-    <div class="image-responsive dummy">
-        <img src="img/logo.png" alt=""/>
+    <div id="userSection">
+        Welcome <span id="userID">User1</span> <img src="img/user1.png" alt=""/>
     </div>
 
     <div class="menu-toggle toggle-single visible-phone" data-target=".header-area .menu">

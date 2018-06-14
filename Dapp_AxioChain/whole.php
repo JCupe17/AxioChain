@@ -4,14 +4,14 @@
 
     <div class="search-area">
         <div class="container">
-            <div class="date">Thursday March, 29th</div>
+            <div id="date" class="date">DATE</div>
 
-            <div class="time"></div>
+            <div id="time" class="time">TIME</div>
 
-            <form class="form search">
+            <!--<form class="form search">
                 <input type="search" name="s" class="control" placeholder="Search a team or a day"/>
                 <button type="submit"><img src="img/glass.png" alt=""/></button>
-            </form>
+            </form>-->
         </div>
     </div>
 
@@ -19,7 +19,7 @@
         <div class="container">
             <div class="content">
                 <h1 class="main-title">
-                    <br>Ledger<br>
+                    <br>Ranking<br>
                     <img src="img/link2.png" alt=""/>
                     <img src="img/link2.png" alt=""/>
                     <img src="img/logo-coin.png" alt=""/>
@@ -31,12 +31,12 @@
             <div class="action">
                 <a href="#" class="btn secondary full disabled">
                     <img src="img/link.png" alt=""/>
-                    Ledger
+                    Ranking
                 </a>
             </div>
 
             <div class="action">
-                <a href="#" class="btn secondary full">
+                <a href="./whole.php" class="btn secondary full">
                     <img src="img/refresh.png" alt=""/>
                     Update
                 </a>
@@ -51,314 +51,77 @@
         </a>
     </div>
 
+    <div class="date-area">
+        <div class="container">
+            <div class="title">
+            <span id="txStatus" class="inner"></span>
+            </div>
+        </div>
+    </div>
+
+
     <div class="matches-area">
         <div class="container">
-            <div class="items">
+            <div id="items1" class="items">
 
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">29/03/2018</span>
-                            <span class="dash">-</span>
-                            <span id="time2" class="time">10h00</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div id="blocknumber" class="inner">
-                        Block N°2015890
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div id="part1" class="text">
-                            Othmane bet 100 Axiocoin on Seville-Bayern match on Bayern
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">17h54</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                        Block N°2006399
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            Joanne bet 40 Axiocoin on Barcelona-Roma match on Barcelona
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">17h19</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                        Block N°2006260
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            Joanne bet 40 Axiocoin on Seville-Bayern match on Bayern
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">16h10</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                        Block N°2005986
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            Othmane bet 25 Axiocoin on Bayern-Dortmund match on Dortmund
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">16h05</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                        Block N°2005959
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            Othmane bet 50 Axiocoin on Schalke-Fribourg match on Schalke
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">15h59</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                        Block N°2005939
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            Othmane bet 60 Axiocoin on Barcelona-Roma match on Barcelona
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">15h54</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                        Block N°2005921
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            Othmane bet 45 Axiocoin on Liverpool-Man City match on Liverpool
-                            </div>
-                        </div>
+                <div class='item'>
+                    <div class='meta'>
+                        <label class='label hidden-phone'>&nbsp;</label>
+                        <button id ='buttonBet' type='button' class='btn secondary' onclick='showAllMyBets()'>Show ALL MY BETS</button>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="meta">
+                    <div class="name">
                         <div class="inner">
-                            <span class="date">16/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">15h46</span>
+                            <u>USER</u>
                         </div>
                     </div>
 
                     <div class="name">
                         <div class="inner">
-                        Block N°2005890
+                             <u>MatchID</u>
                         </div>
                     </div>
 
                     <div class="info">
                         <div class="inner">
-                            <div class="text">
-                            Othmane bet 100 Axiocoin on Seville-Bayern match on Bayern
-                            </div>
+                            <u><strong>INFO</strong></u>
                         </div>
+                    </div>
+                </div>
+            </div>
+               
+            <div id="items2" class="items">
+                <div class='item'>
+                    <div class='meta'>
+                        <label class='label hidden-phone'>&nbsp;</label>
+                        <button id ='buttonBet' type='button' class='btn secondary' onclick='showAllUsers()'>Show ALL USERS</button>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="meta">
+                    <div class="name">
                         <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">15h41</span>
+                            USER
                         </div>
                     </div>
 
                     <div class="name">
                         <div class="inner">
-                        Block N°2005870
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            Othmane bet 30 Axiocoin on Juventus-Real match on Real
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">15h36</span>
+                            Total Number of Bets
                         </div>
                     </div>
 
                     <div class="name">
                         <div class="inner">
-                            Block N°2005842 
+                            Number of Winning Bets
                         </div>
                     </div>
 
                     <div class="info">
                         <div class="inner">
-                            <div class="text">
-                            vincent bet 50 Axiocoin on Liverpool-Man City match on a draw
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">15h24</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                            Block N°2005785 
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                                vincent bet 50 Axiocoin on Juventus-Real match on a draw
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">15h09</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                            Block N°2005741
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            vincent bet 100 Axiocoin on Bayern-Dortmund match on Bayern
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span class="date">27/03/2018</span>
-                            <span class="dash">-</span>
-                            <span class="time">12h29</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div class="inner">
-                            Block N°2005107
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div class="text">
-                            vincent bet 30 Axiocoin on Barcelona-Roma match on Roma
-                            </div>
+                            <strong>Balance</strong>
                         </div>
                     </div>
                 </div>
@@ -369,50 +132,191 @@
 
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="axiochain.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="functions.js"></script>
 <script>
 
+    var userAccount;
+    var axiochainContract = web3.eth.contract(axiochainABI);
+    var axioChain = axiochainContract.at(axiochainAddress);
+
+    var team1 = ["Russia"      ,"Egypt"  ,"Russia","Uruguay"     ,"Uruguay","Saudi Arabia"];
+    var team2 = ["Saudi Arabia","Uruguay","Egypt" ,"Saudi Arabia","Russia" ,"Egypt"       ];
+
+    setHour("time","date");
+
+    // Checking if Web3 has been injected by the browser (Mist/Metamask)
     if (typeof web3 !== 'undefined') {
+        // Use Mist/Metamask's provider
         web3 = new Web3(web3.currentProvider);
     } else {
+        // Handle the case where the user doesn't have Metamask installed
+        // Probably show them a message prompting them to install Metamask
         // set the provider you want from Web3.providers
         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:3000"));
     }
 
-    web3.eth.defaultAccount = web3.eth.accounts[0];
-
-    var Match = axiochainABI.at(axiochainAddress);
-    console.log(Match);
-
-    var blokkEvent = Match.NewBlokkEvent({},'latest');
-
-    blokkEvent.watch(function(error, result){
-        if (!error)
-        {   
-            var a1=["Juventus","Seville","Liverpool","Barcelona","Schalke","Bayern"];
-            var b1= ["Real","Bayern", "Man City", "Roma", "Fribourg","Dortmund"];
-    
-            console.log("l'event est arrivé");
-            vh=("on "+a1[result.args.gameID-1]);
-            va=("on " +b1[result.args.gameID-1]);
-            vd="on a draw";
-            l="";
-            if(result.args.win==0){l=vd;}
-            else{ if(result.args.win==1){l=vh;}
-                else{l=va;}
-            }
-            s=(a1[result.args.gameID-1]+"-"+b1[result.args.gameID-1]+" match ");
-            r=" bet ";
-            if(result.args.tipe==1){r=" won "}
-            var d= new Date();
-            $("#time2").html(d.getHours()+'h'+d.getMinutes());
-            $("#blocknumber").html('Block N°'+result.args.blocknumber);
-            $("#part1").html(result.args.pseudo +r+result.args.value+' Axiocoin on '+s +l);
-        } else {
-            console.log(error);
+    // Update the default User-account
+    var accountInterval = setInterval(function () {
+        // Check if account has changed
+        if (web3.eth.accounts[0] !== userAccount) {
+            userAccount = web3.eth.accounts[0];
         }
-    });
+    }, 1000);
+
+    function addBetDetails1(pseudo,matchID,stake,message){
+        var divItem   = document.createElement('div');
+        var divName1  = document.createElement('div');
+        var divInner1 = document.createElement('div');
+        var divName2  = document.createElement('div');
+        var divInner2 = document.createElement('div');
+        var divInfo   = document.createElement('div');
+        var divInner3 = document.createElement('div');
+
+        var d = new Date();
+
+        divItem.className   = 'item';
+        divName1.className  = 'name';
+        divInner1.className = 'inner';
+        divName2.className  = 'name';
+        divInner2.className = 'inner';
+        divInfo.className   = 'info';
+        divInner3.className = 'inner';
+
+        var text1 = document.createTextNode(pseudo);
+        var text2 = document.createTextNode(matchID);
+        var text3 = document.createTextNode("You bet " + stake + " on " + message);
+
+        divItem.appendChild(divName1);
+        divName1.appendChild(divInner1);
+        divInner1.appendChild(text1);
+        divItem.appendChild(divName2);
+        divName2.appendChild(divInner2);
+        divInner2.appendChild(text2);
+        divItem.appendChild(divInfo);
+        divInfo.appendChild(divInner3);
+        divInner3.appendChild(text3);
+
+        document.getElementById('items1').appendChild(divItem);
+    }
+
+    function addBetDetails2(pseudo,numberTotalBets,numberWinningBets,balance){
+        var divItem   = document.createElement('div');
+        var divName1  = document.createElement('div');
+        var divInner1 = document.createElement('div');
+        var divName2  = document.createElement('div');
+        var divInner2 = document.createElement('div');
+        var divName3  = document.createElement('div');
+        var divInner3 = document.createElement('div');
+        var divInfo   = document.createElement('div');
+        var divInner4 = document.createElement('div');
+
+        var d = new Date();
+
+        divItem.className   = 'item';
+        divName1.className  = 'name';
+        divInner1.className = 'inner';
+        divName2.className  = 'name';
+        divInner2.className = 'inner';
+        divName3.className  = 'name';
+        divInner3.className = 'inner';
+        divInfo.className   = 'info';
+        divInner4.className = 'inner';
+
+        var text1 = document.createTextNode(pseudo);
+        var text2 = document.createTextNode(numberTotalBets);
+        var text3 = document.createTextNode(numberWinningBets);
+        var text4 = document.createTextNode(balance + " AxioTokens.");
+
+        divItem.appendChild(divName1);
+        divName1.appendChild(divInner1);
+        divInner1.appendChild(text1);
+        divItem.appendChild(divName2);
+        divName2.appendChild(divInner2);
+        divInner2.appendChild(text2);
+        divItem.appendChild(divName3);
+        divName3.appendChild(divInner3);
+        divInner3.appendChild(text3);
+        divItem.appendChild(divInfo);
+        divInfo.appendChild(divInner4);
+        divInner4.appendChild(text4);
+
+        document.getElementById('items2').appendChild(divItem);
+    }
+
+    function getMessageBet(prediction,gameID) {
+        var messageBet;
+        if (prediction == 0) {
+            messageBet = "a DRAW";
+        } else{
+            if(prediction == 1) {
+                messageBet = "the victory of " + team1[gameID-1];
+            } else {
+                messageBet = "the victory of " + team2[gameID-1];
+            }
+        }
+        return messageBet;
+    }
+
+    function showAllMyBets() {
+        var betList = [];
+        var betID;
+        var i;
+        var user = {};
+        var messageBet;
+
+        axioChain.getBetsUser(userAccount,function(error,result) {
+            console.log(result);
+            if (result.length > 0) {
+                for (i = 0; i < result.length; i++) {
+                    betList.push(result[i].c[0]);
+                    betID = result[i].c[0];
+                    axioChain.bets(betID,function(error,result) {
+                        user.pseudo = result[4];
+                        user.matchID = result[3].c[0];
+                        user.winner = result[2].c[0];
+                        user.stake = result[1].c[0];
+
+                        messageBet = getMessageBet(user.winner,user.matchID);
+                        addBetDetails1(user.pseudo,user.matchID,user.stake,messageBet);
+                    });
+                }
+            } else {
+                $("#txStatus").text("YOU HAVE NOT BET ON ANY MATCH YET.");
+            }
+
+        });
+    }
+
+    function showAllUsers() {
+        var userID;
+        var i;
+        var user = {};
+        var messageBet;
+
+        axioChain.getNumberUsers(function(error,result) {
+            console.log("getNumberUsers:"+result);
+            if (result > 0) {
+                for (i = 0; i < result; i++) {
+                    userID = i + 1;
+                    axioChain.users(userID,function(error,result) {
+                        console.log("user:" + result[0]);
+                        user.pseudo = result[0];
+                        user.userID = result[1];
+                        user.numberBets = result[2];
+                        user.numberWinBets = result[3];
+                        user.balance = result[4];
+
+                        addBetDetails2(user.pseudo,user.numberBets,user.numberWinBets,user.balance);
+                    });
+                }
+            } else {
+                $("#txStatus").text("THERE IS NO USERS IN THIS BLOCKCHAIN.");
+            }
+
+        });
+    }
 
 </script>
 
