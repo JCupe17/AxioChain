@@ -11,6 +11,7 @@
         <div class="title">Connection</div>
 
         <div id="txStatus">Be sure that you use the same pseudo that you registered with your wallet address.</div>
+        <div >---</div>
 
         <div class="items">
             <div class="item login">
@@ -28,9 +29,6 @@
                         REGISTER
                     </button>
 
-                    <div >
-                        If you want to participate and receive a wallet address with 1000 AxioCoins to bet on your favorite team please fill the form available <strong><a href="https://docs.google.com/forms/d/e/1FAIpQLScyDhGpvenX-mjpjEvV6SqIVV31Dv0UlKNjM5ALFuLHh_TzBA/viewform">here</a></strong>.
-                    </div>
                 </form>
             </div>
 
@@ -46,6 +44,11 @@
                     </button>
                 </div>
             </div>
+        </div>
+
+        <div >
+            If you want to participate and receive a wallet address to bet on your favorite team please fill the form available <strong><a href="https://docs.google.com/forms/d/e/1FAIpQLScyDhGpvenX-mjpjEvV6SqIVV31Dv0UlKNjM5ALFuLHh_TzBA/viewform">here</a></strong>. <br/>
+            Once you received your wallet address, you are just a few clicks away from your first bet ! Just follow the tutorial <strong><a href="https://sites.google.com/axionable.com/axiochain-user-guide/accueil">here</a></strong>. <br/>
         </div>
 
     </div>
