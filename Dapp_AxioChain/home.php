@@ -27,6 +27,10 @@
                         <img src="img/v-green.png" alt=""/>
                         REGISTER
                     </button>
+
+                    <div >
+                        If you want to participate and receive a wallet address with 1000 AxioCoins to bet on your favorite team please fill the form available <strong><a href="https://docs.google.com/forms/d/e/1FAIpQLScyDhGpvenX-mjpjEvV6SqIVV31Dv0UlKNjM5ALFuLHh_TzBA/viewform">here</a></strong>.
+                    </div>
                 </form>
             </div>
 
