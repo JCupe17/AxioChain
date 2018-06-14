@@ -38,7 +38,7 @@
         </ul>
     </nav>
 
-    <div id="userSection">
+    <div id="userSection" class="dummy">
         Welcome <span id="userID">User1</span> <img src="img/user1.png" alt=""/>
     </div>
 

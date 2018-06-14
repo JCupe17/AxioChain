@@ -74,7 +74,7 @@
 
                     <form class="content">
 
-                        <a href="groupB.php" type="submit" class="btn primary full" >BET !</a>
+                        <a href="groupB.php" type="submit" class="btn primary full disabled" >BET !</a>
 
                     </form>
                 </div>

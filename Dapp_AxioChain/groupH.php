@@ -299,9 +299,9 @@
                     messageBet = "a DRAW";
                 } else{
                     if(result.args.win==1) {
-                        messageBet = "the victory of " + team1[gameID-1];
+                        messageBet = "the victory of " + team1[gameID-43];
                     } else {
-                        messageBet = "the victory of " + team2[gameID-1];
+                        messageBet = "the victory of " + team2[gameID-43];
                     }
                 }
 
@@ -423,7 +423,7 @@
                     user.winner = result[2].c[0];
                     user.stake = result[1].c[0];
 
-                    messageBet = getMessageBet(user.winner,gameID);     
+                    messageBet = getMessageBet(user.winner,gameID-6*7);
                     addBetDetails(user.matchID,user.matchID,user.pseudo,user.stake,messageBet);
                 });
             }
@@ -450,7 +450,7 @@
                         user.stake = result[1].c[0];
 
                         if (user.matchID == gameID) {
-                            messageBet = getMessageBet(user.winner,gameID);     
+                            messageBet = getMessageBet(user.winner,gameID-6*7);
                             addBetDetails(user.matchID,user.matchID,user.pseudo,user.stake,messageBet);
                         }
                     });

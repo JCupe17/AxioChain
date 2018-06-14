@@ -141,8 +141,9 @@
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
 
-    var team1 = ["Russia"      ,"Egypt"  ,"Russia","Uruguay"     ,"Uruguay","Saudi Arabia"];
-    var team2 = ["Saudi Arabia","Uruguay","Egypt" ,"Saudi Arabia","Russia" ,"Egypt"       ];
+    var team1 = ["Russia"      ,"Egypt"  ,"Russia","Uruguay"     ,"Uruguay","Saudi Arabia","Morocco","Portugal","Portugal","IR Iran","IR Iran" ,"Spain"  ,"France"   ,"Peru"   ,"Denmark"  ,"France","Denmark","Australia","Argentina","Croatia","Argentina","Nigeria","Nigeria"  ,"Iceland","Costa Rica","Brazil"     ,"Brazil"    ,"Serbia"     ,"Serbia","Switzerland","Germany","Sweden"        ,"Korea Republic","Germany","Korea Republic","Mexico","Belgium","Tunisia","Belgium","England","Panama" ,"England","Colombia","Poland" ,"Japan"  ,"Poland"  ,"Japan" ,"Senegal" ];
+
+    var team2 = ["Saudi Arabia","Uruguay","Egypt" ,"Saudi Arabia","Russia" ,"Egypt"       ,"IR Iran","Spain"   ,"Morocco" ,"Spain"  ,"Portugal","Morocco","Australia","Denmark","Australia","Peru"  ,"France" ,"Peru"     ,"Iceland"  ,"Nigeria","Croatia"  ,"Iceland","Argentina","Croatia","Serbia"    ,"Switzerland","Costa Rica","Switzerland","Brazil","Costa Rica" ,"Mexico" ,"Korea Republic","Mexico"        ,"Sweden" ,"Germany"       ,"Sweden","Panama" ,"England","Tunisia","Panama" ,"Tunisia","Belgium","Japan"   ,"Senegal","Senegal","Colombia","Poland","Colombia"];
 
     setHour("time","date");
 
@@ -185,7 +186,7 @@
         divInner3.className = 'inner';
 
         var text1 = document.createTextNode(pseudo);
-        var text2 = document.createTextNode(matchID);
+        var text2 = document.createTextNode(team1[matchID-1] + " vs " + team2[matchID-1]);
         var text3 = document.createTextNode("You bet " + stake + " on " + message);
 
         divItem.appendChild(divName1);
@@ -306,7 +307,7 @@
                         user.userID = result[1];
                         user.numberBets = result[2];
                         user.numberWinBets = result[3];
-                        user.balance = result[4];
+                        user.balance = result[4] % 20000;
 
                         addBetDetails2(user.pseudo,user.numberBets,user.numberWinBets,user.balance);
                     });
