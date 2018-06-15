@@ -20,5 +20,5 @@
     <a href="./home.php" class="logo image-responsive">
         <img src="img/logo.png" alt=""/>
     </a>
-    <a  href="#" >About AxioChain</a>
+    <a  href="./aboutAxioChain.php" >About AxioChain</a>
 </div>

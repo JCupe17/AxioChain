@@ -33,7 +33,7 @@
                 <a href="./whole.php">Ranking</a>
             </li>
             <li>
-                <a href="#">About AxioChain</a>
+                <a href="./aboutAxioChain.php">About AxioChain</a>
             </li>
         </ul>
     </nav>
