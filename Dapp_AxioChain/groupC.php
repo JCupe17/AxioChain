@@ -60,7 +60,7 @@
         $team2 = array("Australia","Denmark","Australia","Peru"  ,"France" ,"Peru"     );
         $flagTeam1 = array("img/fra.png","img/per.png","img/den.png","img/fra.png","img/den.png","img/aus.png");
         $flagTeam2 = array("img/aus.png","img/den.png","img/aus.png","img/per.png","img/fra.png","img/per.png");
-        $dateMatch = array("16 Jun, 11:00","16 Jun, 17:00","21 Jun, 13:00","21 Jun, 16:00","26 Jun, 15:00","26 Jun, 15:00");
+        $dateMatch = array("16 Jun, 12:00","16 Jun, 18:00","21 Jun, 14:00","21 Jun, 17:00","26 Jun, 16:00","26 Jun, 16:00");
         $cityMatch = array("Kazan","Saransk","Samara","Ekaterinburg","Sochi","Moscow");
         $oddTeam1  = array( 1.25,3.15,1.65,1.45,5.50,3.60);
         $oddDraw   = array( 6.50,3.10,3.60,4.40,3.70,3.20);
