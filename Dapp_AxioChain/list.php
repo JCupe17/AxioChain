@@ -40,6 +40,14 @@
         </div>
     </div>
 
+    <div class="date-area">
+        <div class="container">
+            <div class="title">
+            <span id="txStatus" class="inner">NOTE: You can only bet for a match until 12PM on the day of the Match.</span>
+            </div>
+        </div>
+    </div>
+
     <div class="content-area items">
         <div class="container">
 
