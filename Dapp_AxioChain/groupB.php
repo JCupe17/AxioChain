@@ -257,13 +257,19 @@
         // Interact with AxioChain Smart Contract
         $("#txStatus"+gameID).text("Processing bet into the blockchain. This may take a while...");
 
-        console.log(gameID);
-        console.log("#winner"+gameID);
-        axioChain.placeOrder(gameID,$("#winner"+gameID).val(), $("#betAmount"+gameID).val(), function(error, result){
-            if(!error)
-                console.log(result);
-            else
-                console.error(error);
+        var stake = parseInt($("#betAmount"+gameID).val());
+
+        axioChain.balanceOf(userAccount,function(error,result) {
+            if (result >= stake) {
+                axioChain.placeOrder(gameID,$("#winner"+gameID).val(), $("#betAmount"+gameID).val(), function(error, result){
+                    if(!error)
+                        console.log(result);
+                    else
+                        console.error(error);
+                });
+            } else {
+                $("#txStatus"+gameID).text("REJECTED TRANSACTION - You do not have enough Tokens.");
+            }
         });
 
         var myEvent = axioChain.ErrorEvent({address: userAccount});
