@@ -259,16 +259,22 @@
 
         var stake = parseInt($("#betAmount"+gameID).val());
 
-        axioChain.balanceOf(userAccount,function(error,result) {
-            if (result >= stake) {
-                axioChain.placeOrder(gameID,$("#winner"+gameID).val(), $("#betAmount"+gameID).val(), function(error, result){
-                    if(!error)
-                        console.log(result);
-                    else
-                        console.error(error);
+        axioChain.games(gameID,function(error,result) {
+            if (result[3] == 3) {
+                axioChain.balanceOf(userAccount,function(error,result) {
+                    if (result >= stake) {
+                        axioChain.placeOrder(gameID,$("#winner"+gameID).val(), $("#betAmount"+gameID).val(), function(error, result) {
+                            if(!error)
+                                console.log(result);
+                            else
+                                console.error(error);
+                        });
+                    } else {
+                        $("#txStatus"+gameID).text("REJECTED TRANSACTION - You do not have enough Tokens.");
+                    }
                 });
             } else {
-                $("#txStatus"+gameID).text("REJECTED TRANSACTION - You do not have enough Tokens.");
+                $("#txStatus"+gameID).text("REJECTED TRANSACTION - The match has finished or the bet was already closed.");
             }
         });
 
