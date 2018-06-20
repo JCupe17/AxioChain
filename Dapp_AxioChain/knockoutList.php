@@ -25,9 +25,9 @@
             </div>
 
             <div class="action">
-                <a href="./whole.php" class="btn secondary full">
-                    <img src="img/link.png" alt=""/>
-                    Ranking
+                <a href="./list.php" class="btn secondary full">
+                    <img src="img/arrow-left.png" alt=""/>
+                    Back
                 </a>
             </div>
 
@@ -56,19 +56,33 @@
                     <div class="head">
                         <center class="name">
                             <img src="img/ball.png" alt=""/>
-                            GROUP PHASE
+                            ROUND OF 16
                         </center>
                     </div>
 
                     <form class="content">
 
-                        <a href="listGroups.php" type="submit" class="btn primary full" >BET !</a>
+                        <a href="roundOf16.php" type="submit" class="btn primary full" >BET !</a>
 
                     </form>
                 </div>
             </div>
 
             <div class="item">
+                <div class="inner">
+                    <div class="head">
+                        <center class="name">
+                            <img src="img/ball.png" alt=""/>
+                            QUARTER-FINALS
+                        </center>
+                    </div>
+
+                    <form class="content">
+
+                        <a href="quarterFinals.php" type="submit" class="btn primary full" >BET !</a>
+
+                    </form>
+                </div>
             </div>
         
             <div class="item">
@@ -76,13 +90,13 @@
                     <div class="head">
                         <center class="name">
                             <img src="img/ball.png" alt=""/>
-                            KNOCKOUT PHASE
+                            SEMI-FINALS, PLAY-OFF AND FINAL
                         </center>
                     </div>
 
                     <form class="content">
 
-                        <a href="knockoutList.php" type="submit" class="btn primary full" >BET !</a>
+                        <a href="semiFinals.php" type="submit" class="btn primary full" >BET !</a>
 
                     </form>
                 </div>

@@ -25,9 +25,9 @@
             </div>
 
             <div class="action">
-                <a href="./whole.php" class="btn secondary full">
-                    <img src="img/link.png" alt=""/>
-                    Ranking
+                <a href="./list.php" class="btn secondary full">
+                    <img src="img/arrow-left.png" alt=""/>
+                    Back
                 </a>
             </div>
 
