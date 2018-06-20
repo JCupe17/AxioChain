@@ -433,7 +433,7 @@
                     user.pseudo = result[4];
                     user.matchID = result[3].c[0];
                     user.winner = result[2].c[0];
-                    user.stake = result[1].c[0];
+                    user.stake = result[1].c[0] % 1000;
 
                     messageBet = getMessageBet(user.winner,gameID-6*3);
                     addBetDetails(user.matchID,user.matchID,user.pseudo,user.stake,messageBet);
@@ -459,7 +459,7 @@
                         user.pseudo = result[4];
                         user.matchID = result[3].c[0];
                         user.winner = result[2].c[0];
-                        user.stake = result[1].c[0];
+                        user.stake = result[1].c[0] % 1000;
 
                         if (user.matchID == gameID) {
                             messageBet = getMessageBet(user.winner,gameID-6*3);
