@@ -133,7 +133,7 @@
 
             echo "<div class='matches-area'>
                 <div class='container'>
-                    <div id=$itemID class='items'>
+                    <div class='items'>
 
                         <div class='item'>
                             <div class='meta'>
@@ -147,6 +147,10 @@
                         </div>
 
                     </div>
+
+                    <div id=$itemID class='items'>
+                    </div>
+
                 </div>
             </div>";
 
@@ -420,6 +424,9 @@
     }
 
     function showBetsMatch(gameID) {
+        // Cleaning div block
+        document.getElementById('items'+gameID).innerHTML = "";
+
         var betList = [];
         var i;
         var user = {};
@@ -444,6 +451,9 @@
     }
 
     function showMyBet(gameID) {
+        // Cleaning div block
+        document.getElementById('items'+gameID).innerHTML = "";
+
         var betList = [];
         var betID;
         var i;

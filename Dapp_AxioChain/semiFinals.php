@@ -19,7 +19,7 @@
         <div class="container">
             <div class="content">
                 <h1 class="main-title">
-                    Bet on your favorite Teams of <br/>the Group A <br/><span class="dark">AxioChain</span>
+                    Bet on your favorite Teams<br/><span class="dark">AxioChain</span>
                     <img src="img/logo-coin.png" alt=""/>
                 </h1>
             </div>
@@ -74,6 +74,8 @@
         $cityMatch = array("St Petersburg","Moscow","St Petersburg","Moscow");
         $oddTeam1  = array(1.44,7.01,2.05, 1.21);
         $oddTeam2  = array(9.01,1.60,3.81,15.01);
+        $resultTeam1  = array(0,0,0,0);
+        $resultTeam2  = array(0,0,0,0);
 
         echo "  <div class='container'>
                     <div class='content-area'> ";

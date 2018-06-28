@@ -60,7 +60,7 @@
         $team2 = array("Iceland"  ,"Nigeria","Croatia"  ,"Iceland","Argentina","Croatia");
         $flagTeam1 = array("img/arg.png","img/cro.png","img/arg.png","img/nga.png","img/nga.png","img/isl.png");
         $flagTeam2 = array("img/isl.png","img/nga.png","img/cro.png","img/isl.png","img/arg.png","img/cro.png");
-        $dateMatch = array("16 Jun, 15:00","16 Jun, 21:00","21 Jun, 20:00","21 Jun, 17:00","26 Jun, 20:00","26 Jun, 20:00");
+        $dateMatch = array("16 Jun, 15:00","16 Jun, 21:00","21 Jun, 20:00","22 Jun, 17:00","26 Jun, 20:00","26 Jun, 20:00");
         $cityMatch = array("Moscow","Kaliningrad","Nizhny Novgorod","Volgograd","St Petersburg","Rostov-On-Don");
         $oddTeam1  = array( 1.32,1.68,1.95,2.50,7.00,4.70);
         $oddDraw   = array( 4.60,3.50,3.30,3.00,4.30,3.40);
@@ -133,7 +133,7 @@
 
             echo "<div class='matches-area'>
                 <div class='container'>
-                    <div id=$itemID class='items'>
+                    <div class='items'>
 
                         <div class='item'>
                             <div class='meta'>
@@ -147,6 +147,10 @@
                         </div>
 
                     </div>
+
+                    <div id=$itemID class='items'>
+                    </div>
+
                 </div>
             </div>";
 
@@ -420,6 +424,9 @@
     }
 
     function showBetsMatch(gameID) {
+        // Cleaning div block
+        document.getElementById('items'+gameID).innerHTML = "";
+
         var betList = [];
         var i;
         var user = {};
@@ -444,6 +451,9 @@
     }
 
     function showMyBet(gameID) {
+        // Cleaning div block
+        document.getElementById('items'+gameID).innerHTML = "";
+
         var betList = [];
         var betID;
         var i;
