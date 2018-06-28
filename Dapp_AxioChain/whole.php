@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div class="match-area container">
+    <!--<div class="match-area container">
         <h2 class="block-title">
             <img src="img/link2.png" alt=""/>
             <img src="img/link2.png" alt=""/>
@@ -175,7 +175,7 @@
             <img src="img/link2.png" alt=""/>
         </h2>
     </div>
-
+    -->
     <div class="matches-area">
         <div class="container">
             <div class="items">
