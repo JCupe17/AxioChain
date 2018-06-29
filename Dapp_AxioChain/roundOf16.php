@@ -56,21 +56,21 @@
     </div>
 
     <?php
-        $team1 = array("France","Uruguay","Spain","Croatia","Brazil","1G","Sweden","1H");
-        $team2 = array("Argentina","Portugal","Russia","Denmark","Mexico","2H","Switzerland","2G");
-        $flagTeam1 = array("img/fra.png","img/uru.png","img/esp.png","img/cro.png","img/bra.png","img/ksa.png","img/swe.png","img/ksa.png");
-        $flagTeam2 = array("img/arg.png","img/por.png","img/rus.png","img/den.png","img/mex.png","img/egy.png","img/sui.png","img/egy.png");
+        $team1 = array("France","Uruguay","Spain","Croatia","Brazil","Belgium","Sweden","Colombia");
+        $team2 = array("Argentina","Portugal","Russia","Denmark","Mexico","Japan","Switzerland","England");
+        $flagTeam1 = array("img/fra.png","img/uru.png","img/esp.png","img/cro.png","img/bra.png","img/bel.png","img/swe.png","img/col.png");
+        $flagTeam2 = array("img/arg.png","img/por.png","img/rus.png","img/den.png","img/mex.png","img/jpn.png","img/sui.png","img/eng.png");
         $dateMatch = array("30 Jun, 16:00","30 Jun, 20:00","01 Jul, 16:00","01 Jul, 20:00","02 Jul, 16:00","02 Jul, 20:00","03 Jul, 16:00","03 Jul, 20:00");
         $cityMatch = array("Kazan","Sochi","Moscow","Nizhny Novgorod","Samara","Rostov-On-Don","St Petersburg","Moscow");
-        $oddTeam1  = array(1.55,1.75,1.23,1.35,1.19,0,1.91,0);
-        $oddTeam2  = array(2.15,1.85,3.41,2.75,3.71,0,1.71,0);
+        $oddTeam1  = array(1.55,1.75,1.22,1.35,1.19,1.16,1.95,2.45);
+        $oddTeam2  = array(2.15,1.85,3.41,2.75,3.71,4.25,1.72,1.48);
         $resultTeam1  = array(0,0,0,0,0,0,0,0);
         $resultTeam2  = array(0,0,0,0,0,0,0,0);
 
         echo "  <div class='container'>
                     <div class='content-area'> ";
         for($i = 0; $i < count($team1); $i++){
-            $gameID   = $i + 1 + 0;
+            $gameID   = $i + 1 + 48;
             $winnerID = 'winner' . $gameID;
             $amountID = 'betAmount' . $gameID;
             $textID   = 'txStatus' . $gameID;
@@ -207,8 +207,8 @@
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
 
-    var teams = [["France","Uruguay","Spain","Croatia","Brazil","1G","Sweden","1H"],["Argentina","Portugal","Russia","Denmark","Mexico","2H","Switzerland","2G"]];
-    var odds  = [[1.55,1.75,1.23,1.35,1.19,0,1.91,0], [2.15,1.85,3.41,2.75,3.71,0,1.71,0]];
+    var teams = [["France","Uruguay","Spain","Croatia","Brazil","Belgium","Sweden","Colombia"],["Argentina","Portugal","Russia","Denmark","Mexico","Japan","Switzerland","England"]];
+    var odds  = [[1.55,1.75,1.22,1.35,1.19,1.16,1.95,2.45], [2.15,1.85,3.41,2.75,3.71,4.25,1.72,1.48]];
 
     setHour("time","date");
 
