@@ -236,7 +236,7 @@
         if (prediction == 0) {
             messageBet = "a DRAW";
         } else{
-            messageBet = "the victory of " + teams[prediction-1][gameID-1];
+            messageBet = "the victory of " + teams[prediction-1][gameID-1-48];
         }
         return messageBet;
     }
@@ -299,9 +299,9 @@
                     messageBet = "a DRAW";
                 } else{
                     if(result.args.win==1) {
-                        messageBet = "the victory of " + team1[gameID-1];
+                        messageBet = "the victory of " + teams[0][gameID-1-48];
                     } else {
-                        messageBet = "the victory of " + team2[gameID-1];
+                        messageBet = "the victory of " + teams[1][gameID-1-48];
                     }
                 }
 
@@ -550,13 +550,13 @@
                             }
                         } else {
                             if (gameStatus == user.winner) {
-                                messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1]) + ' AXC.';
+                                messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1-48]) + ' AXC.';
                             } else {
                                 messageBet = user.pseudo + ' did not win any AXC.'
                             }
                         }
 
-                        winner = teams[user.winner-1][gameID-1];
+                        winner = teams[user.winner-1][gameID-1-48];
 
                         addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                     });
@@ -607,13 +607,13 @@
                                     }
                                 } else {
                                     if (gameStatus == user.winner) {
-                                        messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1]) + ' AXC.';
+                                        messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1-48]) + ' AXC.';
                                     } else {
                                         messageBet = user.pseudo + ' did not win any AXC.'
                                     }
                                 }
 
-                                winner = teams[user.winner-1][gameID-1];
+                                winner = teams[user.winner-1][gameID-1-48];
 
                                 addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                             }
