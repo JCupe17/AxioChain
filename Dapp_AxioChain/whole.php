@@ -283,15 +283,15 @@
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
 
-    var team1 = ["Russia"      ,"Egypt"  ,"Russia","Uruguay"     ,"Uruguay","Saudi Arabia","Morocco","Portugal","Portugal","IR Iran","IR Iran" ,"Spain"  ,"France"   ,"Peru"   ,"Denmark"  ,"France","Denmark","Australia","Argentina","Croatia","Argentina","Nigeria","Nigeria"  ,"Iceland","Costa Rica","Brazil"     ,"Brazil"    ,"Serbia"     ,"Serbia","Switzerland","Germany","Sweden"        ,"Korea Rep.","Germany","Korea Rep.","Mexico","Belgium","Tunisia","Belgium","England","Panama" ,"England","Colombia","Poland" ,"Japan"  ,"Poland"  ,"Japan" ,"Senegal" ];
+    var team1 = ["Russia"      ,"Egypt"  ,"Russia","Uruguay"     ,"Uruguay","Saudi Arabia","Morocco","Portugal","Portugal","IR Iran","IR Iran" ,"Spain"  ,"France"   ,"Peru"   ,"Denmark"  ,"France","Denmark","Australia","Argentina","Croatia","Argentina","Nigeria","Nigeria"  ,"Iceland","Costa Rica","Brazil"     ,"Brazil"    ,"Serbia"     ,"Serbia","Switzerland","Germany","Sweden"        ,"Korea Rep.","Germany","Korea Rep.","Mexico","Belgium","Tunisia","Belgium","England","Panama" ,"England","Colombia","Poland" ,"Japan"  ,"Poland"  ,"Japan" ,"Senegal" ,"France","Uruguay","Spain","Croatia","Brazil","Belgium","Sweden","Colombia"];
 
-    var team2 = ["Saudi Arabia","Uruguay","Egypt" ,"Saudi Arabia","Russia" ,"Egypt"       ,"IR Iran","Spain"   ,"Morocco" ,"Spain"  ,"Portugal","Morocco","Australia","Denmark","Australia","Peru"  ,"France" ,"Peru"     ,"Iceland"  ,"Nigeria","Croatia"  ,"Iceland","Argentina","Croatia","Serbia"    ,"Switzerland","Costa Rica","Switzerland","Brazil","Costa Rica" ,"Mexico" ,"Korea Rep.","Mexico"        ,"Sweden" ,"Germany"       ,"Sweden","Panama" ,"England","Tunisia","Panama" ,"Tunisia","Belgium","Japan"   ,"Senegal","Senegal","Colombia","Poland","Colombia"];
+    var team2 = ["Saudi Arabia","Uruguay","Egypt" ,"Saudi Arabia","Russia" ,"Egypt"       ,"IR Iran","Spain"   ,"Morocco" ,"Spain"  ,"Portugal","Morocco","Australia","Denmark","Australia","Peru"  ,"France" ,"Peru"     ,"Iceland"  ,"Nigeria","Croatia"  ,"Iceland","Argentina","Croatia","Serbia"    ,"Switzerland","Costa Rica","Switzerland","Brazil","Costa Rica" ,"Mexico" ,"Korea Rep.","Mexico"        ,"Sweden" ,"Germany"       ,"Sweden","Panama" ,"England","Tunisia","Panama" ,"Tunisia","Belgium","Japan"   ,"Senegal","Senegal","Colombia","Poland","Colombia","Argentina","Portugal","Russia","Denmark","Mexico","Japan","Switzerland","England"];
 
-    var odds = [[4.30,3.70,3.15, 5.75,3.10,3.50,2.95,3.30,3.70, 6.00,4.60,4.50, 6.50,3.10,3.60,4.40,3.70,3.20, 4.60,3.50,3.30,3.00,4.30,3.40,3.20,4.50, 6.25,3.00,4.60,3.30,4.10,3.10,3.40,4.40, 5.25,3.10, 6.50,4.20,4.90, 5.75,3.15,3.25,3.50,3.10,3.20,3.15,3.50,3.25],[1.44,7.00,2.05, 1.20,2.25,5.00,2.25,4.60,1.62,17.00,8.75,1.35, 1.25,3.15,1.65,1.45,5.50,3.60, 1.32,1.68,1.95,2.50,7.00,4.70,4.60,1.38, 1.17,2.95,8.50,1.85,1.48,2.05,4.70,1.40,10.50,2.45, 1.16,8.25,1.32, 1.20,3.60,2.85,1.65,2.30,3.50,3.25,4.25,3.90],[9.00,1.60,3.80,15.00,3.40,1.72,3.85,1.92,5.75, 1.19,1.35,9.00,14.00,2.35,5.25,7.00,1.62,2.05,10.00,5.25,4.00,2.95,1.45,1.78,1.85,8.00,18.00,2.50,1.35,4.40,6.75,3.90,1.78,7.50, 1.27,2.95,19.00,1.40,9.25,16.00,2.10,2.40,5.50,3.20,2.10,2.25,1.85,1.95]];
+    var odds = [[4.30,3.70,3.15, 5.75,3.10,3.50,2.95,3.30,3.70, 6.00,4.60,4.50, 6.50,3.10,3.60,4.40,3.70,3.20, 4.60,3.50,3.30,3.00,4.30,3.40,3.20,4.50, 6.25,3.00,4.60,3.30,4.10,3.10,3.40,4.40, 5.25,3.10, 6.50,4.20,4.90, 5.75,3.15,3.25,3.50,3.10,3.20,3.15,3.50,3.25,1.55,1.75,1.22,1.35,1.19,1.16,1.95,2.45],[1.44,7.00,2.05, 1.20,2.25,5.00,2.25,4.60,1.62,17.00,8.75,1.35, 1.25,3.15,1.65,1.45,5.50,3.60, 1.32,1.68,1.95,2.50,7.00,4.70,4.60,1.38, 1.17,2.95,8.50,1.85,1.48,2.05,4.70,1.40,10.50,2.45, 1.16,8.25,1.32, 1.20,3.60,2.85,1.65,2.30,3.50,3.25,4.25,3.90,1.55,1.75,1.22,1.35,1.19,1.16,1.95,2.45],[9.00,1.60,3.80,15.00,3.40,1.72,3.85,1.92,5.75, 1.19,1.35,9.00,14.00,2.35,5.25,7.00,1.62,2.05,10.00,5.25,4.00,2.95,1.45,1.78,1.85,8.00,18.00,2.50,1.35,4.40,6.75,3.90,1.78,7.50, 1.27,2.95,19.00,1.40,9.25,16.00,2.10,2.40,5.50,3.20,2.10,2.25,1.85,1.95,2.15,1.85,3.41,2.75,3.71,4.25,1.72,1.48]];
 
-    var result1     = [5,0,3,1,3,2,0,3,1,0,1,2,2,0,1,1,0,0,1,2,0,2,1,1,0,1,2,1,0,2,0,1,1,2,2,0,3,1,5,6,0,0,1,1,2,0,0,0];
-    var result2     = [0,1,1,0,0,1,1,3,0,1,1,2,1,1,1,0,0,2,1,0,3,0,2,2,1,1,0,2,2,2,1,0,2,1,0,3,0,2,2,2,0,0,2,2,2,3,0,0];
-    var matchResult = [1,2,1,1,1,1,2,0,1,2,0,0,1,2,0,1,0,2,0,1,2,1,2,2,2,0,1,2,2,0,2,1,2,1,1,2,1,2,1,1,0,0,2,2,0,2,0,0];
+    var result1     = [5,0,3,1,3,2,0,3,1,0,1,2,2,0,1,1,0,0,1,2,0,2,1,1,0,1,2,1,0,2,0,1,1,2,2,0,3,1,5,6,0,0,1,1,2,0,0,0,0,0,0,0,0,0,0,0];
+    var result2     = [0,1,1,0,0,1,1,3,0,1,1,2,1,1,1,0,0,2,1,0,3,0,2,2,1,1,0,2,2,2,1,0,2,1,0,3,0,2,2,2,0,0,2,2,2,3,0,0,0,0,0,0,0,0,0,0];
+    var matchResult = [1,2,1,1,1,1,2,0,1,2,0,0,1,2,0,1,0,2,0,1,2,1,2,2,2,0,1,2,2,0,2,1,2,1,1,2,1,2,1,1,0,0,2,2,0,2,0,0,0,0,0,0,0,0,0,0];
 
     setHour("time","date");
 
@@ -389,12 +389,17 @@
 
         var text1 = document.createTextNode(pseudo);
         var text2 = document.createTextNode(stake + " AXC");
-        var text4 = document.createTextNode(team1[matchID-1] + " : " + result1[matchID-1] + " . " + team2[matchID-1] + " : " + result2[matchID-1]);
 
-        if (matchResult[matchID-1] == userWinner) {
-            var text5 = document.createTextNode("You won " + parseInt(stake*odds[userWinner][matchID-1]) + " AXC");
+        if (matchResult[matchID-1] == 0) {
+            var text4 = document.createTextNode("-");
+            var text5 = document.createTextNode("The match has not started yet");
         } else {
-            var text5 = document.createTextNode("You lost " + stake + " AXC");
+            var text4 = document.createTextNode(team1[matchID-1] + " : " + result1[matchID-1] + " . " + team2[matchID-1] + " : " + result2[matchID-1]);
+            if (matchResult[matchID-1] == userWinner) {
+                var text5 = document.createTextNode("You won " + parseInt(stake*odds[userWinner][matchID-1]) + " AXC");
+            } else {
+                var text5 = document.createTextNode("You lost " + stake + " AXC");
+            }
         }
 
         divItem.appendChild(divName1);
