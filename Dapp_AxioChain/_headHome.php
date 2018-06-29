@@ -20,6 +20,6 @@
     <a href="./home.php" class="logo image-responsive">
         <img src="img/logo.png" alt=""/>
     </a>
-    <a href="./rules.php">AxioChain's Rules</a>
+    <a href="./rulesHome.php">AxioChain's Rules</a>
     <a  href="./aboutAxioChain.php" >About AxioChain</a>
 </div>

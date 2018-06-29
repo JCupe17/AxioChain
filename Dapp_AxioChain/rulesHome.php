@@ -1,4 +1,4 @@
-<?php include '_head.php'; ?>
+<?php include '_headHome.php'; ?>
 <div class="login-area bg wrapper">
     <div class="container">
 
