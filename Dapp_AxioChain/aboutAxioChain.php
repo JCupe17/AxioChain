@@ -13,7 +13,7 @@
     <div class="container">
         <a href="./home.php" class="back">
             <img src="img/arrow-left.png" alt=""/>
-            Back to the Home Page
+            Back to Home Page
         </a>
     </div>
 

@@ -33,13 +33,14 @@
                 <a href="./whole.php">Ranking</a>
             </li>
             <li>
-                <a href="./aboutAxioChain.php">About AxioChain</a>
+                <a href="./rules.php">Rules</a>
             </li>
         </ul>
     </nav>
 
-    <div id="userSection" class="dummy">
-        Welcome <span id="userID">User1</span> <img src="img/user1.png" alt=""/>
+    <div id="userSection"><!-- class="dummy">
+        Welcome <span id="userID">User1</span> <img src="img/user1.png" alt=""/>-->
+        <a href="./aboutAxioChain.php">About AxioChain</a>
     </div>
 
     <div class="menu-toggle toggle-single visible-phone" data-target=".header-area .menu">
