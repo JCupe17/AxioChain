@@ -64,8 +64,8 @@
         $cityMatch = array("Kazan","Sochi","Moscow","Nizhny Novgorod","Samara","Rostov-On-Don","St Petersburg","Moscow");
         $oddTeam1  = array(1.55,1.75,1.22,1.35,1.19,1.16,1.95,2.45);
         $oddTeam2  = array(2.15,1.85,3.41,2.75,3.71,4.25,1.72,1.48);
-        $resultTeam1  = array(4,2,'1 (3)','1 (3)',0,0,0,0);
-        $resultTeam2  = array(3,1,'1 (4)','1 (2)',0,0,0,0);
+        $resultTeam1  = array(4,2,'1 (3)','1 (3)',2,3,0,0);
+        $resultTeam2  = array(3,1,'1 (4)','1 (2)',0,2,0,0);
 
         echo "  <div class='container'>
                     <div class='content-area'> ";
@@ -173,7 +173,7 @@
                                                 <div class='inner'>
                                                     <div class='text'>";
 
-                                                    if ($i < 4) {
+                                                    if ($i < 6) {
                                                         echo "<b>Result:</b> $team1[$i] <b>$resultTeam1[$i] - $resultTeam2[$i]</b> $team2[$i]";
                                                     } else {
                                                         echo "<b>Result:</b> The match has not started yet";
