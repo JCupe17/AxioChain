@@ -173,7 +173,7 @@
                                                 <div class='inner'>
                                                     <div class='text'>";
 
-                                                    if ($i < 6) {
+                                                    if ($i < 8) {
                                                         echo "<b>Result:</b> $team1[$i] <b>$resultTeam1[$i] - $resultTeam2[$i]</b> $team2[$i]";
                                                     } else {
                                                         echo "<b>Result:</b> The match has not started yet";
