@@ -122,7 +122,7 @@
 
                                     <div class='group action'>
                                         <label class='label hidden-phone'>&nbsp;</label>
-                                        <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET!</button>
+                                        <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET!</button>
                                     </div>
 
                                 </div>

@@ -79,7 +79,7 @@
 
                     <form class="content">
 
-                        <a href="quarterFinals.php" type="submit" class="btn primary full disabled" >BET !</a>
+                        <a href="quarterFinals.php" type="submit" class="btn primary full" >BET !</a>
 
                     </form>
                 </div>

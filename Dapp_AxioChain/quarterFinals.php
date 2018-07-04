@@ -56,14 +56,14 @@
     </div>
 
     <?php
-        $team1 = array("W49","W53","W55","W51");
-        $team2 = array("W50","W54","W56","W52");
-        $flagTeam1 = array("img/rus.png","img/egy.png","img/rus.png","img/uru.png");
-        $flagTeam2 = array("img/ksa.png","img/uru.png","img/egy.png","img/ksa.png");
+        $team1 = array("Uruguay","Brazil" ,"Sweden" ,"Russia" );
+        $team2 = array("France" ,"Belgium","England","Croatia");
+        $flagTeam1 = array("img/uru.png","img/bra.png","img/swe.png","img/rus.png");
+        $flagTeam2 = array("img/fra.png","img/bel.png","img/eng.png","img/cro.png");
         $dateMatch = array("06 Jul, 16:00","06 Jul, 20:00","07 Jul, 16:00","07 Jul, 20:00");
         $cityMatch = array("Nizhny Novgorod","Kazan","Samara","Sochi");
-        $oddTeam1  = array(1.44,7.01,2.05, 1.21);
-        $oddTeam2  = array(9.01,1.60,3.81,15.01);
+        $oddTeam1  = array(2.65,1.52,2.75,2.35);
+        $oddTeam2  = array(1.38,2.25,1.35,1.52);
         $resultTeam1  = array(0,0,0,0);
         $resultTeam2  = array(0,0,0,0);
 
@@ -171,9 +171,13 @@
 
                                             <div class='info'>
                                                 <div class='inner'>
-                                                    <div class='text'>
-                                                        <b>Result:</b> $team1[$i] <b>$resultTeam1[$i] - $resultTeam2[$i]</b> $team2[$i]
-                                                    </div>
+                                                    <div class='text'>";
+                                                    if ($i < 0) {
+                                                        echo "<b>Result:</b> $team1[$i] <b>$resultTeam1[$i] - $resultTeam2[$i]</b> $team2[$i]";
+                                                    } else {
+                                                        echo "<b>Result:</b> The match has not started yet";
+                                                    }
+        echo "                                      </div>
                                                 </div>
                                             </div>
                                         </div>
