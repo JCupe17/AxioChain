@@ -1,15 +1,15 @@
 Pseudo;Nb of Bets;Nb of Winning Bets;Bet Ratio;Balance
-Jean;6;5;83%;2344 AXC
-Imene;6;5;83%;2081 AXC
-Vincent;8;5;83%;1877 AXC
-xavier.cassin@axionable.com;8;5;83%;1542 AXC
-Laurent C.;8;4;67%;2349 AXC
-Yannick_Pi;8;4;67%;1682 AXC
-Lamino;8;4;67%;1117 AXC
-Q;3;3;50%;3686 AXC
-Yaya;3;2;33%;1975 AXC
-Goku;4;2;33%;1965 AXC
-josefo;2;1;17%;1775 AXC
+Imene;8;7;88%;2152 AXC
+xavier.cassin@axionable.com;8;6;75%;2517 AXC
+Vincent;8;6;75%;2072 AXC
+Q;5;5;63%;3686 AXC
+Yannick_Pi;8;5;63%;2422 AXC
+Laurent C.;8;5;63%;2388 AXC
+Jean;8;5;63%;1944 AXC
+Lamino;8;4;50%;1117 AXC
+Goku;4;3;38%;2004 AXC
+Yaya;3;2;25%;1975 AXC
+josefo;2;1;13%;1775 AXC
 Abde;0;0;0%;2000 AXC
 Ahoth;0;0;0%;2000 AXC
 Batiste;0;0;0%;2000 AXC
@@ -22,3 +22,4 @@ nfsrules;0;0;0%;2000 AXC
 paul_l;0;0;0%;2000 AXC
 simon;0;0;0%;2000 AXC
 TestMobile;0;0;0%;2000 AXC
+AntoineCL;2;0;0%;1650 AXC
