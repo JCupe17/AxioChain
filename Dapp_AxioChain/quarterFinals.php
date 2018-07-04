@@ -211,8 +211,8 @@
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
 
-    var teams = [["Russia","Egypt","Russia","Uruguay"],["Saudi Arabia","Uruguay","Egypt","Saudi Arabia"]];
-    var odds  = [[1.44,7.01,2.05,1.21], [9.01,1.60,3.81,15.01]];
+    var teams = [["Uruguay","Brazil" ,"Sweden" ,"Russia" ],["France" ,"Belgium","England","Croatia"]];
+    var odds  = [[2.65,1.52,2.75,2.35], [1.38,2.25,1.35,1.52]];
 
     setHour("time","date");
 
@@ -240,7 +240,7 @@
         if (prediction == 0) {
             messageBet = "a DRAW";
         } else{
-            messageBet = "the victory of " + teams[prediction-1][gameID-1];
+            messageBet = "the victory of " + teams[prediction-1][gameID-1-56];
         }
         return messageBet;
     }
@@ -303,9 +303,9 @@
                     messageBet = "a DRAW";
                 } else{
                     if(result.args.win==1) {
-                        messageBet = "the victory of " + team1[gameID-1];
+                        messageBet = "the victory of " + team1[gameID-1-56];
                     } else {
-                        messageBet = "the victory of " + team2[gameID-1];
+                        messageBet = "the victory of " + team2[gameID-1-56];
                     }
                 }
 
@@ -554,13 +554,13 @@
                             }
                         } else {
                             if (gameStatus == user.winner) {
-                                messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1]) + ' AXC.';
+                                messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1-56]) + ' AXC.';
                             } else {
                                 messageBet = user.pseudo + ' did not win any AXC.'
                             }
                         }
 
-                        winner = teams[user.winner-1][gameID-1];
+                        winner = teams[user.winner-1][gameID-1-56];
 
                         addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                     });
@@ -611,13 +611,13 @@
                                     }
                                 } else {
                                     if (gameStatus == user.winner) {
-                                        messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1]) + ' AXC.';
+                                        messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1-56]) + ' AXC.';
                                     } else {
                                         messageBet = user.pseudo + ' did not win any AXC.'
                                     }
                                 }
 
-                                winner = teams[user.winner-1][gameID-1];
+                                winner = teams[user.winner-1][gameID-1-56];
 
                                 addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                             }
