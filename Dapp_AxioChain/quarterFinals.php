@@ -303,9 +303,9 @@
                     messageBet = "a DRAW";
                 } else{
                     if(result.args.win==1) {
-                        messageBet = "the victory of " + team1[gameID-1-56];
+                        messageBet = "the victory of " + teams[0][gameID-1-56];
                     } else {
-                        messageBet = "the victory of " + team2[gameID-1-56];
+                        messageBet = "the victory of " + teams[1][gameID-1-56];
                     }
                 }
 
