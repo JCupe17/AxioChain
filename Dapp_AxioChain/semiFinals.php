@@ -25,7 +25,7 @@
             </div>
 
             <div class="action">
-                <a href="./knockoutList.php" class="btn secondary full">
+                <a href="./whole.php" class="btn secondary full">
                     <img src="img/link.png" alt=""/>
                     Ranking
                 </a>
@@ -505,7 +505,7 @@
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
 
-    var teams = [["France","Croatia","L61","W61"],["Belgium","England","L62","W62"];
+    var teams = [["France","Croatia","L61","W61"],["Belgium","England","L62","W62"]];
     var odds  = [[1.70,2.20,0,0],[2.10,1.60,0,0]];
 
     setHour("time","date");
@@ -730,6 +730,52 @@
         document.getElementById('items'+gameID).appendChild(divItem);
     }
 
+    function addBetDetails2(gameID,pseudo,stake,winner,message) {
+        var divItem   = document.createElement('div');
+        var divName1  = document.createElement('div');
+        var divSpan1  = document.createElement('span');
+        var divName2  = document.createElement('div');
+        var divSpan2  = document.createElement('span');
+        var divName3  = document.createElement('div');
+        var divSpan3  = document.createElement('span');
+        var divInfo   = document.createElement('div');
+        var divInner  = document.createElement('div');
+        var divSpan4  = document.createElement('span');
+
+        divItem.className   = 'item';
+        divName1.className  = 'name';
+        divSpan1.className  = 'inner';
+        divName2.className  = 'name';
+        divSpan2.className  = 'inner';
+        divName3.className  = 'name';
+        divSpan3.className  = 'inner';
+        divInfo.className   = 'info';
+        divInner.className  = 'inner';
+        divSpan4.className  = 'text';
+
+        var text1 = document.createTextNode(pseudo);
+        var text2 = document.createTextNode(stake + ' AXC');
+        var text3 = document.createTextNode(winner);
+        var text4 = document.createTextNode(message);
+
+        divItem.appendChild(divName1);
+        divName1.appendChild(divSpan1);
+        divSpan1.appendChild(text1);
+        divItem.appendChild(divName2);
+        divName2.appendChild(divSpan2);
+        divSpan2.appendChild(text2);
+        divItem.appendChild(divName3);
+        divName3.appendChild(divSpan3);
+        divSpan3.appendChild(text3);
+        divItem.appendChild(divInfo);
+        divInfo.appendChild(divInner);
+        divInner.appendChild(divSpan4);
+        divSpan4.appendChild(text4);
+
+        document.getElementById('items'+gameID).appendChild(divItem);
+    }
+
+
 
 
     function getBetDetails(betID) {
@@ -768,57 +814,117 @@
     }
 
     function showBetsMatch(gameID) {
+        // Cleaning div block
+        document.getElementById('items'+gameID).innerHTML = "";
+
         var betList = [];
         var i;
         var user = {};
-        axioChain.getBetsMatch(gameID,function(error,result) {
-            for (i = 0; i < result.length; i++) {
-                betList.push(result[i].c[0]);
-            }
-
-            for (betID of betList) {
-                axioChain.bets(betID,function(error,result) {
-                    user.pseudo = result[4];
-                    user.matchID = result[3].c[0];
-                    user.winner = result[2].c[0];
-                    user.stake = result[1].c[0];
-
-                    messageBet = getMessageBet(user.winner,gameID);
-                    addBetDetails1(user.matchID,user.pseudo,user.stake,messageBet);
-                });
-            }
-
-        });
-    }
-
-    function showMyBet(gameID) {
-        var betList = [];
-        var betID;
-        var i;
-        var user = {};
+        var gameIDBlockchain;
+        var gameStatus;
+        var winner;
         var messageBet;
 
-        axioChain.getBetsUser(userAccount,function(error,result) {
-            if (result.length > 0) {
+        axioChain.games(gameID,function(error,result) {
+            gameStatus = result[3].c[0];
+            gameIDBlockchain = result[0].c[0];
+
+            axioChain.getBetsMatch(gameID,function(error,result) {
                 for (i = 0; i < result.length; i++) {
                     betList.push(result[i].c[0]);
-                    betID = result[i].c[0];
+                }
+
+                for (betID of betList) {
                     axioChain.bets(betID,function(error,result) {
                         user.pseudo = result[4];
                         user.matchID = result[3].c[0];
                         user.winner = result[2].c[0];
                         user.stake = result[1].c[0];
 
-                        if (user.matchID == gameID) {
-                            messageBet = getMessageBet(user.winner,gameID);
-                            addBetDetails1(user.matchID,user.pseudo,user.stake,messageBet);
+                        if (gameStatus == 3) {
+                            messageBet = 'The match has not started yet.';
+                        } else if (gameStatus == 0) {
+                            if (gameIDBlockchain == gameID) {
+                                messageBet = 'The bet was closed but the retribution was not done yet.';
+                            } else {
+                                messageBet = 'The bet was not created yet.';
+                            }
+                        } else {
+                            if (gameStatus == user.winner) {
+                                messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1-60]) + ' AXC.';
+                            } else {
+                                messageBet = user.pseudo + ' did not win any AXC.'
+                            }
                         }
+
+                        winner = teams[user.winner-1][gameID-1-60];
+
+                        addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                     });
                 }
-            } else {
-                $("#txStatus"+gameID).text("You have not bet on this match yet.");
-            }
+            });
 
+        });
+    }
+
+    function showMyBet(gameID) {
+        // Cleaning div block
+        document.getElementById('items'+gameID).innerHTML = "";
+
+        var betList = [];
+        var betID;
+        var i;
+        var user = {};
+        var gameIDBlockchain;
+        var gameStatus;
+        var winner;
+        var messageBet;
+
+        axioChain.games(gameID,function(error,result) {
+            gameStatus = result[3].c[0];
+            gameIDBlockchain = result[0].c[0];
+
+            axioChain.getBetsUser(userAccount,function(error,result) {
+                if (result.length > 0) {
+                    for (i = 0; i < result.length; i++) {
+                        betList.push(result[i].c[0]);
+                        betID = result[i].c[0];
+                        axioChain.bets(betID,function(error,result) {
+                            user.pseudo = result[4];
+                            user.matchID = result[3].c[0];
+                            user.winner = result[2].c[0];
+                            user.stake = result[1].c[0];
+
+                            if (user.matchID == gameID) {
+                                messageBet = getMessageBet(user.winner,gameID);
+
+                                if (gameStatus == 3) {
+                                    messageBet = 'The match has not started yet.';
+                                } else if (gameStatus == 0) {
+                                    if (gameIDBlockchain == gameID) {
+                                        messageBet = 'The bet was closed but the retribution was not done yet.';
+                                    } else {
+                                        messageBet = 'The bet was not created yet.';
+                                    }
+                                } else {
+                                    if (gameStatus == user.winner) {
+                                        messageBet = user.pseudo + ' won ' + parseInt(user.stake*odds[user.winner-1][gameID-1-60]) + ' AXC.';
+                                    } else {
+                                        messageBet = user.pseudo + ' did not win any AXC.'
+                                    }
+                                }
+
+                                winner = teams[user.winner-1][gameID-1-60];
+
+                                addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
+                            }
+                        });
+                    }
+                } else {
+                    $("#txStatus"+gameID).text("You have not bet on this match yet.");
+                }
+
+            });
         });
     }
 
