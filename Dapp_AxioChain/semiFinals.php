@@ -66,14 +66,14 @@
     </div>
 
     <?php
-        $team1 = array("W57","W59","L61","W61");
-        $team2 = array("W58","W60","L62","W62");
-        $flagTeam1 = array("img/rus.png","img/egy.png","img/rus.png","img/uru.png");
-        $flagTeam2 = array("img/ksa.png","img/uru.png","img/egy.png","img/ksa.png");
+        $team1 = array("France","Croatia","L61","W61");
+        $team2 = array("Belgium","England","L62","W62");
+        $flagTeam1 = array("img/fra.png","img/cro.png","-","-");
+        $flagTeam2 = array("img/bel.png","img/eng.png","-","-");
         $dateMatch = array("10 Jul, 20:00","11 Jul, 20:00","14 Jul, 16:00","15 Jul, 17:00");
         $cityMatch = array("St Petersburg","Moscow","St Petersburg","Moscow");
-        $oddTeam1  = array(1.44,7.01,2.05, 1.21);
-        $oddTeam2  = array(9.01,1.60,3.81,15.01);
+        $oddTeam1  = array(1.70,2.20,'-','-');
+        $oddTeam2  = array(2.10,1.60,'-','-');
         $resultTeam1  = array(0,0,0,0);
         $resultTeam2  = array(0,0,0,0);
 
@@ -157,6 +157,48 @@
 
                             <div class='matches-area'>
                                 <div class='container'>
+
+                                    <div class='items'>
+
+                                        <div class='item'>
+                                            <div class='meta'>
+                                                <div class='inner'>
+                                                    <span class='date'>Pseudo</span>
+                                                </div>
+                                            </div>
+
+                                            <div class='meta'>
+                                                <div class='inner'>
+                                                    <span class='date'>Bet</span>
+                                                </div>
+                                            </div>
+
+                                            <div class='meta'>
+                                                <div class='inner'>
+                                                    <span class='date'>User's Winner</span>
+                                                </div>
+                                            </div>
+
+                                            <div class='info'>
+                                                <div class='inner'>
+                                                    <div class='text'>";
+
+                                                    if (($resultTeam1[$i] == 0) && ($resultTeam2[$i] == 0)) {
+                                                        echo "<b>Result:</b> The match has not started yet";
+                                                    } else {
+                                                        echo "<b>Result:</b> $team1[$i] <b>$resultTeam1[$i] - $resultTeam2[$i]</b> $team2[$i]";
+                                                    }
+        echo "                                      </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='matches-area'>
+                                <div class='container'>
                                     <div id=$itemID class='items'>
 
                                     </div>
@@ -234,7 +276,7 @@
 
                                 <div class='group action'>
                                     <label class='label hidden-phone'>&nbsp;</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET!</button>
                                 </div>
 
                             </div>
@@ -242,11 +284,11 @@
                             <div class='panel submit'>
                                 <div class='group action'>
                                     <label class='label hidden-phone'>SHOW</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='showMyBet($gameID)'>MY BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showMyBet($gameID)'>MY BET!</button>
                                 </div>
                                 <div class='group action'>
                                     <label class='label hidden-phone'>SHOW</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='showBetsMatch($gameID)'>ALL BETS!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showBetsMatch($gameID)'>ALL BETS!</button>
                                 </div>
 
                             </div>
@@ -255,6 +297,48 @@
 
                         <div >
                             <span id=$textID class='inner'>---</span>
+                        </div>
+
+                        <div class='matches-area'>
+                            <div class='container'>
+
+                                <div class='items'>
+
+                                    <div class='item'>
+                                        <div class='meta'>
+                                            <div class='inner'>
+                                                <span class='date'>Pseudo</span>
+                                            </div>
+                                        </div>
+
+                                        <div class='meta'>
+                                            <div class='inner'>
+                                                <span class='date'>Bet</span>
+                                            </div>
+                                        </div>
+
+                                        <div class='meta'>
+                                            <div class='inner'>
+                                                <span class='date'>User's Winner</span>
+                                            </div>
+                                        </div>
+
+                                        <div class='info'>
+                                            <div class='inner'>
+                                                <div class='text'>";
+
+                                                if (($resultTeam1[$i] == 0) && ($resultTeam2[$i] == 0)) {
+                                                    echo "<b>Result:</b> The match has not started yet";
+                                                } else {
+                                                    echo "<b>Result:</b> $team1[$i] <b>$resultTeam1[$i] - $resultTeam2[$i]</b> $team2[$i]";
+                                                }
+        echo "                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
 
                         <div class='matches-area'>
@@ -332,7 +416,7 @@
 
                                 <div class='group action'>
                                     <label class='label hidden-phone'>&nbsp;</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET!</button>
                                 </div>
 
                             </div>
@@ -340,11 +424,11 @@
                             <div class='panel submit'>
                                 <div class='group action'>
                                     <label class='label hidden-phone'>SHOW</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='showMyBet($gameID)'>MY BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showMyBet($gameID)'>MY BET!</button>
                                 </div>
                                 <div class='group action'>
                                     <label class='label hidden-phone'>SHOW</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='showBetsMatch($gameID)'>ALL BETS!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showBetsMatch($gameID)'>ALL BETS!</button>
                                 </div>
 
                             </div>
@@ -353,6 +437,48 @@
 
                         <div >
                             <span id=$textID class='inner'>---</span>
+                        </div>
+
+                        <div class='matches-area'>
+                            <div class='container'>
+
+                                <div class='items'>
+
+                                    <div class='item'>
+                                        <div class='meta'>
+                                            <div class='inner'>
+                                                <span class='date'>Pseudo</span>
+                                            </div>
+                                        </div>
+
+                                        <div class='meta'>
+                                            <div class='inner'>
+                                                <span class='date'>Bet</span>
+                                            </div>
+                                        </div>
+
+                                        <div class='meta'>
+                                            <div class='inner'>
+                                                <span class='date'>User's Winner</span>
+                                            </div>
+                                        </div>
+
+                                        <div class='info'>
+                                            <div class='inner'>
+                                                <div class='text'>";
+
+                                                if (($resultTeam1[$i] == 0) && ($resultTeam2[$i] == 0)) {
+                                                    echo "<b>Result:</b> The match has not started yet";
+                                                } else {
+                                                    echo "<b>Result:</b> $team1[$i] <b>$resultTeam1[$i] - $resultTeam2[$i]</b> $team2[$i]";
+                                                }
+        echo "                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
 
                         <div class='matches-area'>
@@ -379,8 +505,8 @@
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
 
-    var team1 = ["Russia"      ,"Egypt"  ,"Russia","Uruguay"     ,"Uruguay","Saudi Arabia"];
-    var team2 = ["Saudi Arabia","Uruguay","Egypt" ,"Saudi Arabia","Russia" ,"Egypt"       ];
+    var teams = [["France","Croatia","L61","W61"],["Belgium","England","L62","W62"];
+    var odds  = [[1.70,2.20,0,0],[2.10,1.60,0,0]];
 
     setHour("time","date");
 
@@ -408,11 +534,7 @@
         if (prediction == 0) {
             messageBet = "a DRAW";
         } else{
-            if(prediction == 1) {
-                messageBet = "the victory of " + team1[gameID-1];
-            } else {
-                messageBet = "the victory of " + team2[gameID-1];
-            }
+            messageBet = "the victory of " + teams[prediction-1][gameID-1-60];
         }
         return messageBet;
     }
@@ -475,9 +597,9 @@
                     messageBet = "a DRAW";
                 } else{
                     if(result.args.win==1) {
-                        messageBet = "the victory of " + team1[gameID-1];
+                        messageBet = "the victory of " + teams[0][gameID-1-60];
                     } else {
-                        messageBet = "the victory of " + team2[gameID-1];
+                        messageBet = "the victory of " + teams[1][gameID-1-60];
                     }
                 }
 
@@ -584,7 +706,7 @@
         var text3 = document.createTextNode(gameID);
         var text4 = document.createTextNode(pseudo);
         var text5 = document.createTextNode(stake + " AXC");
-        var text6 = document.createTextNode("On a " + message);
+        var text6 = document.createTextNode(message);
 
         divItem.appendChild(divMeta);
         divMeta.appendChild(divInner1);
