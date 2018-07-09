@@ -32,7 +32,7 @@
             </div>
 
             <div class="action">
-                <a href="./knockout.php" class="btn secondary full">
+                <a href="./semiFinals.php" class="btn secondary full">
                     <img src="img/refresh.png" alt=""/>
                     Update
                 </a>
