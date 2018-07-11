@@ -66,15 +66,15 @@
     </div>
 
     <?php
-        $team1 = array("France","Croatia","L61","W61");
+        $team1 = array("France","Croatia","Belgium","France");
         $team2 = array("Belgium","England","L62","W62");
-        $flagTeam1 = array("img/fra.png","img/cro.png","-","-");
+        $flagTeam1 = array("img/fra.png","img/cro.png","img/bel.png","img/fra.png");
         $flagTeam2 = array("img/bel.png","img/eng.png","-","-");
         $dateMatch = array("10 Jul, 20:00","11 Jul, 20:00","14 Jul, 16:00","15 Jul, 17:00");
         $cityMatch = array("St Petersburg","Moscow","St Petersburg","Moscow");
         $oddTeam1  = array(1.70,2.20,'-','-');
         $oddTeam2  = array(2.10,1.60,'-','-');
-        $resultTeam1  = array(0,0,0,0);
+        $resultTeam1  = array(1,0,0,0);
         $resultTeam2  = array(0,0,0,0);
 
         echo "  <div class='container'>
