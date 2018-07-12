@@ -67,15 +67,15 @@
 
     <?php
         $team1 = array("France","Croatia","Belgium","France");
-        $team2 = array("Belgium","England","L62","W62");
+        $team2 = array("Belgium","England","England","Croatia");
         $flagTeam1 = array("img/fra.png","img/cro.png","img/bel.png","img/fra.png");
-        $flagTeam2 = array("img/bel.png","img/eng.png","-","-");
+        $flagTeam2 = array("img/bel.png","img/eng.png","img/eng.png","img/cro.png");
         $dateMatch = array("10 Jul, 20:00","11 Jul, 20:00","14 Jul, 16:00","15 Jul, 17:00");
         $cityMatch = array("St Petersburg","Moscow","St Petersburg","Moscow");
         $oddTeam1  = array(1.70,2.20,'-','-');
         $oddTeam2  = array(2.10,1.60,'-','-');
-        $resultTeam1  = array(1,0,0,0);
-        $resultTeam2  = array(0,0,0,0);
+        $resultTeam1  = array(1,2,0,0);
+        $resultTeam2  = array(0,1,0,0);
 
         echo "  <div class='container'>
                     <div class='content-area'> ";
@@ -132,7 +132,7 @@
 
                                     <div class='group action'>
                                         <label class='label hidden-phone'>&nbsp;</label>
-                                        <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET!</button>
+                                        <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET!</button>
                                     </div>
 
                                 </div>
