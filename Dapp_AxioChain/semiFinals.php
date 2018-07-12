@@ -72,8 +72,8 @@
         $flagTeam2 = array("img/bel.png","img/eng.png","img/eng.png","img/cro.png");
         $dateMatch = array("10 Jul, 20:00","11 Jul, 20:00","14 Jul, 16:00","15 Jul, 17:00");
         $cityMatch = array("St Petersburg","Moscow","St Petersburg","Moscow");
-        $oddTeam1  = array(1.70,2.20,'-','-');
-        $oddTeam2  = array(2.10,1.60,'-','-');
+        $oddTeam1  = array(1.70,2.20,'1.60','1.28');
+        $oddTeam2  = array(2.10,1.60,'2.15','2.65');
         $resultTeam1  = array(1,2,0,0);
         $resultTeam2  = array(0,1,0,0);
 
@@ -276,7 +276,7 @@
 
                                 <div class='group action'>
                                     <label class='label hidden-phone'>&nbsp;</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET!</button>
                                 </div>
 
                             </div>
@@ -284,11 +284,11 @@
                             <div class='panel submit'>
                                 <div class='group action'>
                                     <label class='label hidden-phone'>SHOW</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showMyBet($gameID)'>MY BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='showMyBet($gameID)'>MY BET!</button>
                                 </div>
                                 <div class='group action'>
                                     <label class='label hidden-phone'>SHOW</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showBetsMatch($gameID)'>ALL BETS!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='showBetsMatch($gameID)'>ALL BETS!</button>
                                 </div>
 
                             </div>
@@ -416,7 +416,7 @@
 
                                 <div class='group action'>
                                     <label class='label hidden-phone'>&nbsp;</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET!</button>
                                 </div>
 
                             </div>
@@ -424,11 +424,11 @@
                             <div class='panel submit'>
                                 <div class='group action'>
                                     <label class='label hidden-phone'>SHOW</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showMyBet($gameID)'>MY BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='showMyBet($gameID)'>MY BET!</button>
                                 </div>
                                 <div class='group action'>
                                     <label class='label hidden-phone'>SHOW</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showBetsMatch($gameID)'>ALL BETS!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='showBetsMatch($gameID)'>ALL BETS!</button>
                                 </div>
 
                             </div>
@@ -505,8 +505,8 @@
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
 
-    var teams = [["France","Croatia","L61","W61"],["Belgium","England","L62","W62"]];
-    var odds  = [[1.70,2.20,0,0],[2.10,1.60,0,0]];
+    var teams = [["France","Croatia","Belgium","France"],["Belgium","England","England","Croatia"]];
+    var odds  = [[1.70,2.20,1.60,1.28],[2.10,1.60,2.15,2.65]];
 
     setHour("time","date");
 
