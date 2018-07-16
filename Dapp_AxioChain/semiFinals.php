@@ -74,8 +74,8 @@
         $cityMatch = array("St Petersburg","Moscow","St Petersburg","Moscow");
         $oddTeam1  = array(1.70,2.20,'1.60','1.28');
         $oddTeam2  = array(2.10,1.60,'2.15','2.65');
-        $resultTeam1  = array(1,2,0,0);
-        $resultTeam2  = array(0,1,0,0);
+        $resultTeam1  = array(1,2,2,4);
+        $resultTeam2  = array(0,1,0,2);
 
         echo "  <div class='container'>
                     <div class='content-area'> ";
@@ -276,7 +276,7 @@
 
                                 <div class='group action'>
                                     <label class='label hidden-phone'>&nbsp;</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET!</button>
                                 </div>
 
                             </div>
@@ -416,7 +416,7 @@
 
                                 <div class='group action'>
                                     <label class='label hidden-phone'>&nbsp;</label>
-                                    <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET!</button>
+                                    <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET!</button>
                                 </div>
 
                             </div>
