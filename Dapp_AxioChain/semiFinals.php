@@ -638,7 +638,7 @@
                             }
                         }
 
-                        winner = teams[user.winner-1][gameID-1-60];
+                        winner = getWinner(user.winner,gameID);
 
                         addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                     });
@@ -695,7 +695,7 @@
                                     }
                                 }
 
-                                winner = teams[user.winner-1][gameID-1-60];
+                                winner = getWinner(user.winner,gameID);
 
                                 addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                             }
