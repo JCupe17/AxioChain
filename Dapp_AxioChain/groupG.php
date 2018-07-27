@@ -123,7 +123,7 @@
 
                             <div class='group action'>
                                 <label class='label hidden-phone'>&nbsp;</label>
-                                <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET !</button>
+                                <button id ='buttonBet' type='button' class='btn primary full ' onclick='betFunction($gameID)'>BET !</button>
                             </div>
                         </div>
 
@@ -138,7 +138,7 @@
                         <div class='item'>
                             <div class='meta'>
                                 <label class='label hidden-phone'>&nbsp;</label>
-                                <button id ='buttonBet' type='button' class='btn secondary disabled' onclick='showMyBet($gameID)'>Show my BET on this match</button>
+                                <button id ='buttonBet' type='button' class='btn secondary ' onclick='showMyBet($gameID)'>Show my BET on this match</button>
                             </div>
                             <div class='meta'>
                                 <label class='label hidden-phone'>&nbsp;</label>
@@ -166,48 +166,6 @@
 
     ?>
 
-    <!--<div class="container">
-        <h2 class="block-title">
-            <img src="img/link2.png" alt=""/>
-            <img src="img/link2.png" alt=""/>
-            <span class="text">Bets for this Group</span>
-            <img src="img/link2.png" alt=""/>
-            <img src="img/link2.png" alt=""/>
-        </h2>
-    </div>
-
-    <div class="matches-area">
-        <div class="container">
-            <div id="items" class="items">
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="inner">
-                            <span id="date2" class="date">29/03/2018</span>
-                            <span class="dash">-</span>
-                            <span id="time2" class="time">10h00</span>
-                        </div>
-                    </div>
-
-                    <div class="name">
-                        <div id="blocknumber" class="inner">
-                            Block N°2014050
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <div class="inner">
-                            <div id="part1" class="text">
-                                Massi bet 20 Axiocoin on a draw
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>-->
-
 </div>
 
 <script src="axiochain.js"></script>
@@ -218,9 +176,6 @@
     var userAccount;
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
-
-    var team1 = ["Belgium","Tunisia","Belgium","England","Panama" ,"England"];
-    var team2 = ["Panama" ,"England","Tunisia","Panama" ,"Tunisia","Belgium"];
 
     setHour("time","date");
 
@@ -242,20 +197,6 @@
             userAccount = web3.eth.accounts[0];
         }
     }, 1000);
-
-    function getMessageBet(prediction,gameID) {
-        var messageBet;
-        if (prediction == 0) {
-            messageBet = "a DRAW";
-        } else{
-            if(prediction == 1) {
-                messageBet = "the victory of " + team1[gameID-1];
-            } else {
-                messageBet = "the victory of " + team2[gameID-1];
-            }
-        }
-        return messageBet;
-    }
 
     function betFunction(gameID){
         // Interact with AxioChain Smart Contract
@@ -311,15 +252,7 @@
         betEvent.watch(function(error, result){
             if (!error && result.args.tipe==0 && result.args.gameID==gameID)
             {
-                if(result.args.win==0) {
-                    messageBet = "a DRAW";
-                } else{
-                    if(result.args.win==1) {
-                        messageBet = "the victory of " + team1[gameID-37];
-                    } else {
-                        messageBet = "the victory of " + team2[gameID-37];
-                    }
-                }
+                messageBet = getMessageBet(result.args.win,gameID);
 
                 $("#txStatus"+gameID).text("Successful BET!");
                 addBetDetails(gameID,result.args.blocknumber,result.args.pseudo,result.args.value,messageBet);
@@ -329,98 +262,6 @@
             }
         });
 
-    }
-
-    function getUser(){
-        // Interact with AxioChain Smart Contract
-        var gameID = 1;
-    }
-
-    function addBetDetails(gameID,blockNumber,pseudo,stake,message){
-        var divItem   = document.createElement('div');
-        var divMeta   = document.createElement('div');
-        var divInner1 = document.createElement('div');
-        var divSpan1  = document.createElement('span');
-        var divSpan2  = document.createElement('span');
-        var divSpan3  = document.createElement('span');
-        var divName   = document.createElement('div');
-        var divSpan4  = document.createElement('span');
-        var divInfo   = document.createElement('div');
-        var divInner2 = document.createElement('div');
-        var divSpan5  = document.createElement('span');
-
-        var d = new Date();
-
-        divItem.className   = 'item';
-        divMeta.className   = 'meta';
-        divInner1.className = 'inner';
-        divSpan1.className  = 'date';
-        divSpan2.className  = 'dash';
-        divSpan3.className  = 'time';
-        divName.className   = 'name';
-        divSpan4.className  = 'inner';
-        divInfo.className   = 'info';
-        divInner2.className = 'inner';
-        divSpan5.className  = 'text';
-
-        var text1 = document.createTextNode(checkTime(d.getDay()) + '/' + checkTime(d.getMonth()) + '/' + d.getFullYear());
-        var text2 = document.createTextNode("-");
-        var text3 = document.createTextNode(checkTime(d.getHours()) + 'h' + checkTime(d.getMinutes()));
-        var text4 = document.createTextNode("Match N° " + blockNumber);
-        var text5 = document.createTextNode(pseudo + " bet " + stake + " AxioCoin on a " + message);
-
-        divItem.appendChild(divMeta);
-        divMeta.appendChild(divInner1);
-        divInner1.appendChild(divSpan1);
-        divSpan2.appendChild(text1);
-        divInner1.appendChild(divSpan2);
-        divSpan2.appendChild(text2);
-        divInner1.appendChild(divSpan3);
-        divSpan3.appendChild(text3);
-        divItem.appendChild(divName);
-        divName.appendChild(divSpan4);
-        divSpan4.appendChild(text4);
-        divItem.appendChild(divInfo);
-        divInfo.appendChild(divInner2);
-        divInner2.appendChild(divSpan5);
-        divSpan5.appendChild(text5);
-
-        document.getElementById('items'+gameID).appendChild(divItem);
-    }
-
-    function getBetDetails(betID) {
-        var user = {};
-        axioChain.bets(betID,function(error,result) {
-            user.pseudo = result[4];
-            user.matchID = result[3].c[0];
-            user.winner = result[2].c[0];
-            user.stake = result[1].c[0];
-
-            addBetDetails(user.matchID,user.matchID,user.pseudo,user.stake,user.winner);
-        });
-    }
-
-    function getBetsMatch(gameID){
-        var betList = [];
-        var i;
-        axioChain.getBetsMatch(gameID,function(error,result) {
-            for (i = 0; i < result.length; i++) {
-                betList.push(result[i].c[0]);
-            }
-            console.log(betList.length);
-        });
-    }
-
-    function getBetsUser(){
-        var betList = [];
-        var i;
-        axioChain.getBetsUser(userAccount,function(error,result) {
-            console.log(result);
-            for (i = 0; i < result.length; i++) {
-                betList.push(result[i].c[0]);
-            }
-            console.log(betList.length);
-        });
     }
 
     function showBetsMatch(gameID) {
@@ -442,7 +283,7 @@
                     user.winner = result[2].c[0];
                     user.stake = result[1].c[0];
 
-                    messageBet = getMessageBet(user.winner,gameID-6*6);
+                    messageBet = getMessageBet(user.winner,gameID);
                     addBetDetails(user.matchID,user.matchID,user.pseudo,user.stake,messageBet);
                 });
             }
@@ -472,7 +313,7 @@
                         user.stake = result[1].c[0];
 
                         if (user.matchID == gameID) {
-                            messageBet = getMessageBet(user.winner,gameID-6*6);
+                            messageBet = getMessageBet(user.winner,gameID);
                             addBetDetails(user.matchID,user.matchID,user.pseudo,user.stake,messageBet);
                         }
                     });

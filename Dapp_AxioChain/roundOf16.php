@@ -212,7 +212,6 @@
     var axiochainContract = web3.eth.contract(axiochainABI);
     var axioChain = axiochainContract.at(axiochainAddress);
 
-    var teams = [["France","Uruguay","Spain","Croatia","Brazil","Belgium","Sweden","Colombia"],["Argentina","Portugal","Russia","Denmark","Mexico","Japan","Switzerland","England"]];
     var odds  = [[1.55,1.75,1.22,1.35,1.19,1.16,1.95,2.45], [2.15,1.85,3.41,2.75,3.71,4.25,1.72,1.48]];
 
     setHour("time","date");
@@ -235,16 +234,6 @@
             userAccount = web3.eth.accounts[0];
         }
     }, 1000);
-
-    function getMessageBet(prediction,gameID) {
-        var messageBet;
-        if (prediction == 0) {
-            messageBet = "a DRAW";
-        } else{
-            messageBet = "the victory of " + teams[prediction-1][gameID-1-48];
-        }
-        return messageBet;
-    }
 
     function betFunction(gameID){
         // Interact with AxioChain Smart Contract
@@ -300,15 +289,7 @@
         betEvent.watch(function(error, result){
             if (!error && result.args.tipe==0 && result.args.gameID==gameID)
             {
-                if(result.args.win==0) {
-                    messageBet = "a DRAW";
-                } else{
-                    if(result.args.win==1) {
-                        messageBet = "the victory of " + teams[0][gameID-1-48];
-                    } else {
-                        messageBet = "the victory of " + teams[1][gameID-1-48];
-                    }
-                }
+                messageBet = getMessageBet(result.args.win,gameID);
 
                 $("#txStatus"+gameID).text("Successful BET!");
                 addBetDetails(gameID,result.args.blocknumber,result.args.pseudo,result.args.value,messageBet);
@@ -318,203 +299,6 @@
             }
         });
 
-    }
-
-    function getUser(){
-        // Interact with AxioChain Smart Contract
-        var gameID = 1;
-    }
-
-    function addBetDetails(gameID,blockNumber,pseudo,stake,message){
-        var divItem   = document.createElement('div');
-        var divMeta   = document.createElement('div');
-        var divInner1 = document.createElement('div');
-        var divSpan1  = document.createElement('span');
-        var divSpan2  = document.createElement('span');
-        var divSpan3  = document.createElement('span');
-        var divName   = document.createElement('div');
-        var divSpan4  = document.createElement('span');
-        var divInfo   = document.createElement('div');
-        var divInner2 = document.createElement('div');
-        var divSpan5  = document.createElement('span');
-
-        var d = new Date();
-
-        divItem.className   = 'item';
-        divMeta.className   = 'meta';
-        divInner1.className = 'inner';
-        divSpan1.className  = 'date';
-        divSpan2.className  = 'dash';
-        divSpan3.className  = 'time';
-        divName.className   = 'name';
-        divSpan4.className  = 'inner';
-        divInfo.className   = 'info';
-        divInner2.className = 'inner';
-        divSpan5.className  = 'text';
-
-        var text1 = document.createTextNode(checkTime(d.getDay()) + '/' + checkTime(d.getMonth()) + '/' + d.getFullYear());
-        var text2 = document.createTextNode("-");
-        var text3 = document.createTextNode(checkTime(d.getHours()) + 'h' + checkTime(d.getMinutes()));
-        var text4 = document.createTextNode("Block N° " + blockNumber);
-        var text5 = document.createTextNode(pseudo + " bet " + stake + " AxioCoin on a " + message);
-
-        divItem.appendChild(divMeta);
-        divMeta.appendChild(divInner1);
-        divInner1.appendChild(divSpan1);
-        divSpan2.appendChild(text1);
-        divInner1.appendChild(divSpan2);
-        divSpan2.appendChild(text2);
-        divInner1.appendChild(divSpan3);
-        divSpan3.appendChild(text3);
-        divItem.appendChild(divName);
-        divName.appendChild(divSpan4);
-        divSpan4.appendChild(text4);
-        divItem.appendChild(divInfo);
-        divInfo.appendChild(divInner2);
-        divInner2.appendChild(divSpan5);
-        divSpan5.appendChild(text5);
-
-        document.getElementById('items'+gameID).appendChild(divItem);
-    }
-
-    function addBetDetails1(gameID,pseudo,stake,message){
-        var divItem   = document.createElement('div');
-        var divMeta   = document.createElement('div');
-        var divInner1 = document.createElement('div');
-        var divSpan1  = document.createElement('span');
-        var divSpan2  = document.createElement('span');
-        var divSpan3  = document.createElement('span');
-        var divName1  = document.createElement('div');
-        var divSpan4  = document.createElement('span');
-        var divName2  = document.createElement('div');
-        var divSpan5  = document.createElement('span');
-        var divInfo   = document.createElement('div');
-        var divInner2 = document.createElement('div');
-        var divSpan6  = document.createElement('span');
-
-        var d = new Date();
-
-        divItem.className   = 'item';
-        divMeta.className   = 'meta';
-        divInner1.className = 'inner';
-        divSpan1.className  = 'date';
-        divSpan2.className  = 'dash';
-        divSpan3.className  = 'time';
-        divName1.className  = 'name';
-        divSpan4.className  = 'inner';
-        divName2.className  = 'name';
-        divSpan5.className  = 'inner';
-        divInfo.className   = 'info';
-        divInner2.className = 'inner';
-        divSpan6.className  = 'text';
-
-        var text1 = document.createTextNode("Match N°");
-        var text2 = document.createTextNode(":");
-        var text3 = document.createTextNode(gameID);
-        var text4 = document.createTextNode(pseudo);
-        var text5 = document.createTextNode(stake + " AXC");
-        var text6 = document.createTextNode(message);
-
-        divItem.appendChild(divMeta);
-        divMeta.appendChild(divInner1);
-        divInner1.appendChild(divSpan1);
-        divSpan2.appendChild(text1);
-        divInner1.appendChild(divSpan2);
-        divSpan2.appendChild(text2);
-        divInner1.appendChild(divSpan3);
-        divSpan3.appendChild(text3);
-        divItem.appendChild(divName1);
-        divName1.appendChild(divSpan4);
-        divSpan4.appendChild(text4);
-        divItem.appendChild(divName2);
-        divName2.appendChild(divSpan5);
-        divSpan5.appendChild(text5);
-        divItem.appendChild(divInfo);
-        divInfo.appendChild(divInner2);
-        divInner2.appendChild(divSpan6);
-        divSpan6.appendChild(text6);
-
-        document.getElementById('items'+gameID).appendChild(divItem);
-    }
-
-    function addBetDetails2(gameID,pseudo,stake,winner,message) {
-        var divItem   = document.createElement('div');
-        var divName1  = document.createElement('div');
-        var divSpan1  = document.createElement('span');
-        var divName2  = document.createElement('div');
-        var divSpan2  = document.createElement('span');
-        var divName3  = document.createElement('div');
-        var divSpan3  = document.createElement('span');
-        var divInfo   = document.createElement('div');
-        var divInner  = document.createElement('div');
-        var divSpan4  = document.createElement('span');
-
-        divItem.className   = 'item';
-        divName1.className  = 'name';
-        divSpan1.className  = 'inner';
-        divName2.className  = 'name';
-        divSpan2.className  = 'inner';
-        divName3.className  = 'name';
-        divSpan3.className  = 'inner';
-        divInfo.className   = 'info';
-        divInner.className  = 'inner';
-        divSpan4.className  = 'text';
-
-        var text1 = document.createTextNode(pseudo);
-        var text2 = document.createTextNode(stake + ' AXC');
-        var text3 = document.createTextNode(winner);
-        var text4 = document.createTextNode(message);
-
-        divItem.appendChild(divName1);
-        divName1.appendChild(divSpan1);
-        divSpan1.appendChild(text1);
-        divItem.appendChild(divName2);
-        divName2.appendChild(divSpan2);
-        divSpan2.appendChild(text2);
-        divItem.appendChild(divName3);
-        divName3.appendChild(divSpan3);
-        divSpan3.appendChild(text3);
-        divItem.appendChild(divInfo);
-        divInfo.appendChild(divInner);
-        divInner.appendChild(divSpan4);
-        divSpan4.appendChild(text4);
-
-        document.getElementById('items'+gameID).appendChild(divItem);
-    }
-
-    function getBetDetails(betID) {
-        var user = {};
-        axioChain.bets(betID,function(error,result) {
-            user.pseudo = result[4];
-            user.matchID = result[3].c[0];
-            user.winner = result[2].c[0];
-            user.stake = result[1].c[0];
-
-            addBetDetails(user.matchID,user.matchID,user.pseudo,user.stake,user.winner);
-        });
-    }
-
-    function getBetsMatch(gameID){
-        var betList = [];
-        var i;
-        axioChain.getBetsMatch(gameID,function(error,result) {
-            for (i = 0; i < result.length; i++) {
-                betList.push(result[i].c[0]);
-            }
-            console.log(betList.length);
-        });
-    }
-
-    function getBetsUser(){
-        var betList = [];
-        var i;
-        axioChain.getBetsUser(userAccount,function(error,result) {
-            console.log(result);
-            for (i = 0; i < result.length; i++) {
-                betList.push(result[i].c[0]);
-            }
-            console.log(betList.length);
-        });
     }
 
     function showBetsMatch(gameID) {
@@ -561,7 +345,7 @@
                             }
                         }
 
-                        winner = teams[user.winner-1][gameID-1-48];
+                        winner = getWinner(user.winner,gameID);
 
                         addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                     });
@@ -618,7 +402,7 @@
                                     }
                                 }
 
-                                winner = teams[user.winner-1][gameID-1-48];
+                                winner = getWinner(user.winner,gameID);
 
                                 addBetDetails2(user.matchID,user.pseudo,user.stake,winner,messageBet);
                             }
