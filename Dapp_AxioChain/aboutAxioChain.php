@@ -6,14 +6,14 @@
             <img src="img/logo-home.png" alt=""/>
         </div>
 
-        <div class="description">The first online betting service based on a blockchain</div>
+        <div class="description">An online betting service based on a blockchain</div>
 
     </div>
 
     <div class="container">
         <a href="./home.php" class="back">
             <img src="img/arrow-left.png" alt=""/>
-            Back to Home Page
+            <span class="description">Back to Home Page</span>
         </a>
     </div>
 
@@ -33,21 +33,14 @@
             </ul>
         </p>
  
-        <p align="left">So here we are, inviting you to join the AxioChain challenge and support your team in 2018 Soccer World Cup.</p>
+        <p align="left">So here we are, inviting you to explore the AxioChain Dapp developed for the 2018 Soccer World Cup.</p>
  
-        <p align="left"><strong>AxioChain is the first online betting service capitalizing on Blockchain technology.</strong></p>
+        <p align="left"><strong>AxioChain is an online betting service capitalizing on Blockchain technology.</strong></p>
         <p align="justify">Tailoring to the typical pain points of this industry such as blackbox processes and bets,  and unknown participants identities, AxioChain takes advantages on the transparent and unchangable nature of the blockchain to secure players' assets.</p>
  
-        <p align="justify">Yet most importantly, we invite you to witness the future, to experience Blockchain by yourself by participating in our AxioChain betting challenge.</p>
+        <p align="justify">To know more about Blockchain, Ethereum ecosystem, use cases, and about Axionable, feel free to contact <b><a href="https://www.axionable.com/contact/">us</a></b></p>
  
-        <p align="justify">To join the challenge and get 1000 AxioCoins to bet on your favorite teams please fill this <a href="https://goo.gl/forms/qjTQzdiRPdZ66aUb2"><strong>form</strong></a>.</p>
- 
- 
-        <p align="justify">To know more about Blockchain, Ethereum ecosystem, use cases, and about Axionable.</p>
- 
-        <p align="justify">Please contact  <a href="mailto:damien@axionable.com">Damien</a>.</p>
- 
-        <p align="justify">We're happy to discuss.</p>
+        <p align="left" class="description"><b><u>NOTE:</u></b> You can find the code of AxioChain in our <u><a href="https://github.com/Axionable/AxioChain">github</a></u>.</p>
 
         <address>
             <strong>Visit us at:</strong><br>

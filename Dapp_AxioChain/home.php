@@ -6,7 +6,7 @@
             <img src="img/logo-home.png" alt=""/>
         </div>
 
-        <div class="description">The first online betting service based on a blockchain</div>
+        <div class="description">An online betting service based on a blockchain</div>
 
         <div class="title">Connection</div>
 
@@ -24,7 +24,7 @@
                         <input id="walladdress" type="text" name="address" class="control" placeholder="Wallet Address" required/>
                     </div>
 
-                    <button id="buttonConfirm" type="button"  class="btn secondary full" onclick="register()">
+                    <button id="buttonConfirm" type="button"  class="btn secondary full disabled" onclick="register()">
                         <img src="img/v-green.png" alt=""/>
                         REGISTER
                     </button>
@@ -34,22 +34,37 @@
 
             <div class="item register">
                 <div class="inner">
-                    <div class="text">
+                    <!--<div class="text">
                         <input id="pseudoLog" type="text" name="username" class="control" placeholder="Pseudo" required/>
                     </div>
 
                     <button id="buttonLog" type="button" class="btn info full" onclick="logIn()">
                         LOG IN
                         <img src="img/arrow-right.png" alt=""/>
-                    </button>
+                    </button>-->
+
+                    <a href="./list.php" class="btn info full">VISIT THE WEB PAGE</a>
                 </div>
             </div>
         </div>
 
         <div >
+            <p align="justify">
+                <b><u>NOTE 1:</u></b> This website was implemented for the 2018 Soccer World Cup and it is not used anymore. 
+                Only the transactions that use public information from the blockchain are still functional.
+            </p>
+
+            <p align="justify">
+                <b><u>NOTE 2:</u></b> To navigate in this website you should still install the <b><a href="https://metamask.io/">METAMASK</a></b> plugin which will allow you to interact with
+                the Ethereum blockchain. You do not need to create an account or a cryptowallet. All you have to do is to add the plugin, to accept the conditions and
+                to change the default network to <b>Rinkeby Test Network</b>.
+            </p>
+        </div>
+
+        <!--<div >
             If you want to participate and receive a wallet address to bet on your favorite team please fill the form available <strong><a href="https://docs.google.com/forms/d/e/1FAIpQLScyDhGpvenX-mjpjEvV6SqIVV31Dv0UlKNjM5ALFuLHh_TzBA/viewform">here</a></strong>. <br/>
             Once you received your wallet address, you are just a few clicks away from your first bet ! Just follow the tutorial <strong><a href="https://sites.google.com/axionable.com/axiochain-user-guide/accueil">here</a></strong>. <br/>
-        </div>
+        </div>-->
 
     </div>
 </div>
@@ -143,9 +158,6 @@
         });
 
     }
-
-
-
 
 </script>
 

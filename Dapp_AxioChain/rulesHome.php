@@ -6,7 +6,10 @@
             <img src="img/logo-home.png" alt=""/>
         </div>
 
-        <div class="description">RULES OF THE GAME</div>
+        <div class="description">
+            RULES OF THE GAME <br />
+            (These rules were valid only during the Knockout phase)
+        </div>
 
     </div>
 

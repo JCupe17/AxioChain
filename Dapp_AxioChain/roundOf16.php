@@ -130,7 +130,7 @@
                                 <div class='panel submit'>
                                     <div class='group action'>
                                         <label class='label hidden-phone'>SHOW</label>
-                                        <button id ='buttonBet' type='button' class='btn primary full' onclick='showMyBet($gameID)'>MY BET!</button>
+                                        <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='showMyBet($gameID)'>MY BET!</button>
                                     </div>
                                     <div class='group action'>
                                         <label class='label hidden-phone'>SHOW</label>

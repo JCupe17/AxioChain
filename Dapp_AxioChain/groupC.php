@@ -123,7 +123,7 @@
 
                             <div class='group action'>
                                 <label class='label hidden-phone'>&nbsp;</label>
-                                <button id ='buttonBet' type='button' class='btn primary full' onclick='betFunction($gameID)'>BET !</button>
+                                <button id ='buttonBet' type='button' class='btn primary full disabled' onclick='betFunction($gameID)'>BET !</button>
                             </div>
                         </div>
 
@@ -138,7 +138,7 @@
                         <div class='item'>
                             <div class='meta'>
                                 <label class='label hidden-phone'>&nbsp;</label>
-                                <button id ='buttonBet' type='button' class='btn secondary' onclick='showMyBet($gameID)'>Show my BET on this match</button>
+                                <button id ='buttonBet' type='button' class='btn secondary disabled' onclick='showMyBet($gameID)'>Show my BET on this match</button>
                             </div>
                             <div class='meta'>
                                 <label class='label hidden-phone'>&nbsp;</label>
@@ -366,7 +366,7 @@
         var text1 = document.createTextNode(checkTime(d.getDay()) + '/' + checkTime(d.getMonth()) + '/' + d.getFullYear());
         var text2 = document.createTextNode("-");
         var text3 = document.createTextNode(checkTime(d.getHours()) + 'h' + checkTime(d.getMinutes()));
-        var text4 = document.createTextNode("Block N° " + blockNumber);
+        var text4 = document.createTextNode("Match N° " + blockNumber);
         var text5 = document.createTextNode(pseudo + " bet " + stake + " AxioCoin on a " + message);
 
         divItem.appendChild(divMeta);

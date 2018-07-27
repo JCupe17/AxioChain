@@ -62,7 +62,7 @@
 
                     <form class="content">
 
-                        <a href="listGroups.php" type="submit" class="btn primary full disabled" >BET !</a>
+                        <a href="listGroups.php" type="submit" class="btn primary full" >BET !</a>
 
                     </form>
                 </div>

@@ -67,12 +67,12 @@
             <img src="img/link2.png" alt=""/>
             <img src="img/link2.png" alt=""/>
         </h2>
-    </div>
+    </div>-->
 
     <div class="matches-area">
         <div class="container">
 
-            <div class="items">
+            <!--<div class="items">
 
                 <div class='group action'>
                     <label class='label hidden-phone'>&nbsp;</label>
@@ -116,7 +116,7 @@
             </div>
                
             <div id="items1" class="items">
-            </div>
+            </div>-->
 
             <div class="items">
                 <div class='group action'>
@@ -166,7 +166,7 @@
         </div>
     </div>
 
-    <div class="match-area container">
+    <!--<div class="match-area container">
         <h2 class="block-title">
             <img src="img/link2.png" alt=""/>
             <img src="img/link2.png" alt=""/>
@@ -174,11 +174,11 @@
             <img src="img/link2.png" alt=""/>
             <img src="img/link2.png" alt=""/>
         </h2>
-    </div>
-    -->
+    </div>-->
+    
     <div class="matches-area">
         <div class="container">
-            <div class="items">
+            <!--<div class="items">
 
                 <div class='group action'>
                     <label class='label hidden-phone'>&nbsp;</label>
@@ -222,7 +222,7 @@
             </div>
                
             <div id="items3" class="items">
-            </div>
+            </div>-->
 
             <div class="items">
                 <div class='group action'>
